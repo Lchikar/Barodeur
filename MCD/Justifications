@@ -1,0 +1,42 @@
+Un bar possède :
+  - un identifiant
+  - un nom
+  - une adresse composée d'un numéro de rue, d'un nom de rue et d'un code postal
+  - une site internet
+  - un numéro de téléphone
+  - une fiche informative décrivant le bar
+  - un ou plusieurs type(s) (ex: bar à shot, bar geek, ...)
+  - une note par catégories (voir type de note)
+  - 0 ou plusieurs commentaires
+  
+Un type de bar possède :
+  - un identifiant
+  - un nom
+  
+Un utilisateur possède :
+  - un identifiant
+  - un pseudo
+  - un mot de passe (les mots de passe seront gérer dans un second temps pour vérifier si l'utilisateur 
+  qui rédige un commentaire/laisse une note est bien celui qu'il dit être)
+
+Un commentaire possède :
+  - un identifiant
+  - un texte
+  - l'identifiant de l'utilisateur l'ayant écrit
+
+Une note possède :
+  - un identifiant
+  - un unique type (ex: ambiance, prix, rapport qualité-prix)
+  - une valeur
+  - l'identifiant de l'utilisateur l'ayant donnée
+  
+Un type de note possède :
+  - un identidiant
+  - un nom
+  
+Une ville possède :
+  - un identifiant
+  - un code postal
+  - un nom
+
+
