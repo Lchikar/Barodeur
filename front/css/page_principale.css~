@@ -1,0 +1,95 @@
+#page_pricipale{
+	min-height: 100vh;
+    min-width: 100vw;
+	display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+
+#menu{
+	display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+
+}
+
+#menu div{
+	margin: 30px auto 50px auto;
+}
+#rechercher{
+	 width: 250px;
+    height: 30px;
+}
+#ajouter_bar{
+	 width: 150px;
+    height: 30px;
+}
+#menu input{
+	border-radius: 6px;
+    margin: 10px 0;
+    background-color: transparent;
+    color: white;
+}
+
+#affiche_bar{
+	display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+#classer, #classer ul{
+	padding:0;
+	list-style:none;
+	text-align:center;
+	color: white;
+}
+
+#classer li{
+	display:flex;
+	flex-direction: column;
+	position:relative;
+	border-radius:6px 6px 0 0;
+	width: 150px;
+	height: 30px;
+}
+
+#classer ul li{
+	display:inherit;
+	border-radius:0;
+}
+
+#classer ul li:last-child{
+	border-radius:0 0 6px 6px;
+}
+
+#classer ul{
+	position:absolute;
+	max-height:0;
+	left: 0;
+	right: 0;
+}
+
+#classer li{
+	background-color: transparent;
+}
+#debut_liste{
+	border-style: solid;
+	border-width: 1px;
+}
+#classer li: li{
+	background-color: transparent;
+	
+}
+
+#classer a{
+	text-decoration:none;
+	margin-top: 6px;	
+	border-radius: 6px;
+	color: purple;
+}
+#classer ul a{
+	padding:8px 0;
+}
+
