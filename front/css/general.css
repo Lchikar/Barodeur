@@ -2,6 +2,12 @@ body{
  background-image: url(../image/wine.jpg);
  position: fixed;
  }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-image: url(../image/wine_mobile.jpg);
+  }
+}
  
 #pageAccueil{
     min-height: 100vh;
