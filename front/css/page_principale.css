@@ -8,9 +8,10 @@
 
 #menu{
 	display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 150px;
+    padding-right: 150px;
 }
 
 #menu div{
@@ -74,7 +75,7 @@
 #classer li{
 	background-color: transparent;
 }
-#debut_liste{
+#firstLi{
 	border-style: solid;
 	border-width: 1px;
 }
@@ -91,5 +92,11 @@
 }
 #classer ul a{
 	padding:8px 0;
+}
+#hidden{
+    display: none;
+}
+#classer .showList{
+    display: block;
 }
 
