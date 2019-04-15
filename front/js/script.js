@@ -1,11 +1,27 @@
-"use strict";
-document.addEventListener("DOMContentLoaded", initialiser);
+function Afficher()	{
+	
+	show = document.getElementById('hidden');
+	hide1 = document.getElementById('menu');
+	hide2 = document.getElementById('affiche_bar');
+ 	
+	
 
-function initialiser(evt) {
-    var classerPar = document.querySelector("#debut_liste");
-    classerPar.addEventListener("click", displayList);
-}
+		show.style.display = 'block';
+		hide1.style.display = 'none';
+		hide2.style.display = 'none';
+		
+		}
 
-function displayList(evt){
-    document.querySelector("#hidden").classList.toggle("showList");
-}
+function Cacher()	{
+	
+	hide = document.getElementById('hidden');
+	show1 = document.getElementById('menu');
+	show2 = document.getElementById('affiche_bar');
+ 	
+	
+
+		hide.style.display = 'none';
+		show1.style.display = 'block';
+		show2.style.display = 'block';
+		
+		}
