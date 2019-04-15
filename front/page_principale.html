@@ -12,35 +12,56 @@
 </head>
 
 <body>
-	<main id="page_principale">
-		<div id="menu">
+	
+		<div id="menu" >
 			<div id="classement">
-				<ul id="classer">
-					<li id="firstLi"><a href="#" id="debut_liste" >Classer par</a>
-						<div id="hidden" >
-						<ul>
+				<div id="classer"></div>
+
+					<!--	<ul>
 							<li><a href="#">Prix</a></li>
 							<li><a href="#">Distance</a></li>
 							<li><a href="#">Appréciation</a></li>
 						</ul>
-						</div>
-					</li>
-				</ul>
+						-->
+
+
+				
 			</div>
 			<div>
 				<form>
-					<input type="text" name="rechercher" id="rechercher" placeholder="Rechercher" />
+					<input type="text" name="rechercher"  placeholder="Rechercher" />
 				</form>
 			</div>
 			<div>
-				<input type="submit" id="ajouter_bar" value="Ajouter un bar" />
+				<input type="submit" id="ajouter_bar" value="" />
 			</div>
 		</div>
 		
-		<div id="affiche_bar">
+		<div id="affiche_bar" >
 			<h1>Test  blabla chicas que calor me gusta el mojito</h1>
 		</div>
-	</main>
+		
+		<!--deuxieme interface quand on clique sur le bouton-->
+		
+		<div id="hidden" >
+			<div id="croix">
+
+			</div>
+			<form id="mainForm" method="post">
+	
+ 				 <div id="trier"><input type="submit"  value="Classer par :" /></div>
+ 	 				<div id="cocher">
+ 	 				<label><input type="checkbox" id="prix" name="Prix" value="Prix">Prix</label>
+    				<label><input type="checkbox" id="ambiance" name="Ambiance" value="Ambiance">Ambiance</label>
+    				<label><input type="checkbox" id="note" name="Note" value="Note">Note</label>
+    				<label><input type="checkbox" id="distance" name="Distance" value="Distance">Distance</label>
+    				</div>
+    
+    			<input type="submit"  value="Ajouter bar" />
+    			<input type="submit"  value="Se déconnecter" />
+    	</form>
+    </div>
+
 	
 
     <script src="js/script.js"></script>
