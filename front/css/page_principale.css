@@ -1,4 +1,198 @@
-#page_pricipale{
+body{
+		margin: 0;
+
+	min-height: 100vh;
+    min-width: 100vw;
+	display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+
+	}
+
+#menu{
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+       background-color: #85000c;
+       height: 15vh;
+
+       min-width: 100vw;
+}
+
+#menu div{
+margin: auto;}
+#classer{
+margin-left: 0;
+height: 9vh;
+width: 15vw;
+padding-top: 0;
+background-image: url(../image/classer.png);
+background-repeat: no-repeat;
+}
+input[type="text"]{
+background-color: #efd8dd;
+border-radius: 20px;
+	border-width: 0;
+	height: 5vh;
+	width:45vw;
+	font-size: 20px;
+font-family: 'El Messiri', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+}
+#hidden{
+	position: fixed;
+	display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+	background-color: #85000c;	
+	font-family: 'El Messiri', sans-serif;
+}
+#croix{
+	margin-left: 0;
+	height: 9vh;
+	background-image: url(../image/croix.png);
+	background-repeat: no-repeat;
+}
+#mainForm{
+	height: 80vh;
+	width: 55vw;
+	display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+
+}
+#cocher{
+    display: grid;
+    height: 20vh;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: normal;
+    }
+
+   
+#trier{
+	margin-bottom: 10px;
+	margin-top: 45px;
+}
+input[type="checkbox" i] {
+	margin: 10px;
+	border-radius: 10px;
+
+}
+
+#mainForm input{
+
+	background-color: #efd8dd;
+	border-width: 0;
+
+}
+
+input[type="submit" i] {
+	border-radius: 20px;
+	margin: auto;
+	width: 55vw;
+	height: 6vh;
+	font-size: 25px;
+	font-family: 'El Messiri', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    }
+
+#ajouter_bar{
+background-image: url(../image/deco.png);
+background-repeat: no-repeat;
+height: 9vh;
+width: 15vw;
+border: none;
+cursor: pointer;
+background-color: #85000c;
+
+}
+
+#affiche_bar h1{
+	margin: 15px;
+	
+}
+
+#hidden{
+	
+display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+	background-color: #85000c;	
+	font-family: 'El Messiri', sans-serif;
+}
+#croix{
+margin-left: 0;
+height: 9vh;
+background-image: url(../image/croix.png);
+background-repeat: no-repeat;
+}
+#mainForm{
+	height: 80vh;
+	width: 55vw;
+	display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+        justify-content: center;
+        vertical-align: middle;
+    align-items: center;
+
+}
+#cocher{
+    display: grid;
+    height: 20vh;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: normal;
+    }
+
+   
+#trier{
+margin-bottom: 10px;
+margin-top: 45px;
+}
+input[type="checkbox" i] {
+margin: 10px;
+ border-radius: 10px;
+
+}
+
+#mainForm input{
+
+background-color: #efd8dd;
+border-width: 0;
+
+}
+
+input[type="submit" i] {
+	border-radius: 20px;
+	margin: auto;
+width: 55vw;
+height: 6vh;
+font-size: 25px;
+font-family: 'El Messiri', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    }
+#hidden{
+    display: none;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+ .showList{
+    display: block;
+}
+/*#page_pricipale{
 	min-height: 100vh;
     min-width: 100vw;
 	display: flex;
@@ -93,10 +287,5 @@
 #classer ul a{
 	padding:8px 0;
 }
-#hidden{
-    display: none;
-}
-#classer .showList{
-    display: block;
-}
+*/
 
