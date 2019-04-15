@@ -15,17 +15,7 @@
 	
 		<div id="menu" >
 			<div id="classement">
-				<div id="classer"></div>
-
-					<!--	<ul>
-							<li><a href="#">Prix</a></li>
-							<li><a href="#">Distance</a></li>
-							<li><a href="#">Appréciation</a></li>
-						</ul>
-						-->
-
-
-				
+				<div id="classer"  onClick="Afficher()"></div>
 			</div>
 			<div>
 				<form>
@@ -33,7 +23,7 @@
 				</form>
 			</div>
 			<div>
-				<input type="submit" id="ajouter_bar" value="" />
+				<input type="submit" id="deconnection" value="" />
 			</div>
 		</div>
 		
@@ -43,8 +33,8 @@
 		
 		<!--deuxieme interface quand on clique sur le bouton-->
 		
-		<div id="hidden" >
-			<div id="croix">
+		<div id="hidden" style="display: none;" >
+			<div id="croix" onClick="Cacher()">
 
 			</div>
 			<form id="mainForm" method="post">
