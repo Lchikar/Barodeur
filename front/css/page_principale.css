@@ -25,22 +25,23 @@ body{
 }
 
 #deconnection{
-	background-image: url(../image/deco.png);
-	background-repeat: no-repeat;
-	height: 9vh;
-	width: 15vw;
-	border: none;
-	cursor: pointer;
-	background-color: #85000c;
+	    background-image: url(../image/deco.png);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    border: none;
+    background-color: #85000c;
 }
 
 #classer{
-	margin-left: 0;
-	height: 9vh;
-	width: 15vw;
-	padding-top: 0;
-	background-image: url(../image/classer.png);
-	background-repeat: no-repeat;
+	height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-position: center;
+    padding-top: 0;
+    background-image: url(../image/classer.png);
+    background-repeat: no-repeat;
 }
 
 input[type="text"]{
@@ -57,11 +58,12 @@ input[type="text"]{
 }
 
 #croix{
-	margin-left: 0;
-	width: 17vw;
-	height: 9vh;
-	background-image: url(../image/croix.png);
-	background-repeat: no-repeat;
+	margin: 15px;
+    height: 50px;
+    width: 50px;
+    background-image: url(../image/croix.png);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 #mainForm{
@@ -90,9 +92,10 @@ input[type="text"]{
 	margin-top: 45px;
 }
 
-input[type="checkbox" i] {
-	margin: 10px;
+input[type="radio" i] {
+	margin: 15px;
 	border-radius: 10px;
+    transform: scale(1.4);
 }
 
 #mainForm input{

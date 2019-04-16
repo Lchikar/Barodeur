@@ -21,7 +21,7 @@ function Cacher()	{
 	
 
 		hide.style.display = 'none';
-		show1.style.display = 'block';
-		show2.style.display = 'block';
+		show1.style.display = 'flex';
+		show2.style.display = 'flex';
 		
 		}
