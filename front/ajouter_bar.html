@@ -8,11 +8,12 @@
     <meta name="keywords" content="bar etudiant">
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/ajout_bar.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
     <title>Ajouter un bar</title>
 </head>
 
-<body id="pageAccueil">
+<body id="ajoutBar">
     <nav id="menu">
         <div id="classement">
             <div id="classer" onClick="Afficher()"></div>
@@ -46,9 +47,11 @@
             <input type="submit" value="Se déconnecter" />
         </form>
     </div>
+    
+    
     <main>
         <h1>Ajouter un bar</h1>
-        <form>
+        <form id="form_ajout_bar">
             <input type="text" name="nom_bar" id="input_nom_bar" placeholder="Nom du bar*" required />
             <div id="adresse_bar">
                 <h2>Adresse du bar :</h2>
@@ -86,6 +89,9 @@
             <input type="submit" name="ajouter_un_bar" value="Ajouter ce bar">
         </form>
     </main>
+    <footer>
+        <p>* : champs obligatoires</p>
+    </footer>
     <script src="js/menu.js"></script>
 </body>
 

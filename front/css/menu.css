@@ -1,128 +1,129 @@
-body{
-	margin: 0;
-	min-height: 100vh;
-   min-width: 100vw;
-	display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-}
+@media only screen and (max-width: 830px) {
 
-#menu{
-	display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   background-color: #85000c;
-   height: 15vh;
-   min-width: 100vw;
-}
+    body {
+        margin: 0;
+        min-height: 100vh;
+        min-width: 100vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 
-#menu div{
-	margin: auto;
-}
+    #menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: #85000c;
+        height: 15vh;
+        min-width: 100vw;
+    }
 
-#affiche_bar h1{
-	margin: 15px;
-}
+    #menu div {
+        margin: auto;
+    }
 
-#deconnection{
-	    background-image: url(../image/deco.png);
-    background-repeat: no-repeat;
-    height: 50px;
-    width: 50px;
-    background-size: contain;
-    border: none;
-    background-color: #85000c;
-}
+    #affiche_bar h1 {
+        margin: 15px;
+    }
 
-#classer{
-	height: 50px;
-    width: 50px;
-    background-size: contain;
-    background-position: center;
-    padding-top: 0;
-    background-image: url(../image/classer.png);
-    background-repeat: no-repeat;
-}
+    #deconnection {
+        background-image: url(../image/deco.png);
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 50px;
+        background-size: contain;
+        border: none;
+        background-color: #85000c;
+    }
 
-input[type="text"]{
-	background-color: #efd8dd;
-	border-radius: 20px;
-	border-width: 0;
-	height: 5vh;
-	width:45vw;
-	font-size: 20px;
-	font-family: 'El Messiri', sans-serif;
-   font-weight: normal;
-   text-align: center;
-   margin: 0;
-}
+    #classer {
+        height: 50px;
+        width: 50px;
+        background-size: contain;
+        background-position: center;
+        padding-top: 0;
+        background-image: url(../image/classer.png);
+        background-repeat: no-repeat;
+    }
 
-#croix{
-	margin: 15px;
-    height: 50px;
-    width: 50px;
-    background-image: url(../image/croix.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
+    input[type="text"] {
+        background-color: #efd8dd;
+        border-radius: 20px;
+        border-width: 0;
+        height: 5vh;
+        width: 45vw;
+        font-size: 20px;
+        font-family: 'El Messiri', sans-serif;
+        font-weight: normal;
+        text-align: center;
+        margin: 0;
+    }
 
-#mainForm{
-	height: 80vh;
-	width: 55vw;
-	display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-   margin: auto;
-   justify-content: center;
-   vertical-align: middle;
-   align-items: center;
-}
+    #croix {
+        margin: 15px;
+        height: 50px;
+        width: 50px;
+        background-image: url(../image/croix.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
 
-#cocher{
-    display: grid;
-    height: 20vh;
-    color: white;
-    letter-spacing: 1px;
-    font-size: 20px;
-    font-weight: normal;
-}
-   
-#trier{
-	margin-bottom: 10px;
-	margin-top: 45px;
-}
+    #mainForm {
+        height: 80vh;
+        width: 55vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: auto;
+        justify-content: center;
+        vertical-align: middle;
+        align-items: center;
+    }
 
-input[type="radio" i] {
-	margin: 15px;
-	border-radius: 10px;
-    transform: scale(1.4);
+    #cocher {
+        display: grid;
+        height: 20vh;
+        color: white;
+        letter-spacing: 1px;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    #trier {
+        margin-bottom: 10px;
+        margin-top: 45px;
+    }
+
+    input[type="radio"i] {
+        margin: 15px;
+        border-radius: 10px;
+        transform: scale(1.4);
+    }
+
+    #mainForm input {
+        background-color: #efd8dd;
+        border-width: 0;
+    }
+
+    input[type="submit"i] {
+        border-radius: 20px;
+        margin: auto;
+        width: 55vw;
+        height: 6vh;
+        font-size: 25px;
+        font-family: 'El Messiri', sans-serif;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    #hidden {
+        min-width: 100vw;
+        min-height: 100vh;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: #85000c;
+        font-family: 'El Messiri', sans-serif;
+    }
 }
-
-#mainForm input{
-	background-color: #efd8dd;
-	border-width: 0;
-}
-
-input[type="submit" i] {
-	border-radius: 20px;
-	margin: auto;
-	width: 55vw;
-	height: 6vh;
-	font-size: 25px;
-	font-family: 'El Messiri', sans-serif;
-   font-weight: normal;
-   text-align: center;
-}
-
-#hidden{
-	min-width: 100vw;
-   min-height: 100vh;
-   position: fixed;
-	display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-	background-color: #85000c;	
-	font-family: 'El Messiri', sans-serif;
-}
-
-
