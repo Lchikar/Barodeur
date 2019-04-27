@@ -1,0 +1,49 @@
+1.    Afficher un bar en fonction de son type : 
+
+SELECT * 
+FROM Bar, BarBelongsType, BarType
+WHERE BarType.barType = 'cocktail'
+AND BarType.id_barType = BarBelongsType.id_barType
+AND BarBelongsType.id_bar = Bar.id_bar;
+
+Remplacer 'cocktail' par la valeur choisie par l'utilisateur
+
+
+
+2.    Afficher les bars qui ont les meilleures notes dans la catégorie 'prix' :
+    
+SELECT * 
+FROM Bar, Mark, markType
+WHERE markType.markType = 'prix'
+AND markType.id_markType = Mark.id_markType
+AND Mark.id_bar = Bar.id_bar
+ORDER BY Mark.value DESC
+
+
+3.   Classer par ambiance (pareil qu'au dessus mais pour l'ambiance) : 
+    
+SELECT * 
+FROM Bar, Mark, markType
+WHERE markType.markType = 'ambiance'
+AND markType.id_markType = Mark.id_markType
+AND Mark.id_bar = Bar.id_bar
+ORDER BY Mark.value DESC
+
+
+4.   Classer par distant (idem) : 
+    
+SELECT * 
+FROM Bar, Mark, markType
+WHERE markType.markType = 'distance'
+AND markType.id_markType = Mark.id_markType
+AND Mark.id_bar = Bar.id_bar
+ORDER BY Mark.value DESC
+
+
+Pour les requêtes 2, 3 et 4 : je n'ai pas pu tester parce qu'il n'y a aucun bar avec une note 'prix' pour l'instant 
+
+
+
+
+
+
