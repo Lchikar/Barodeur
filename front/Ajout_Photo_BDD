@@ -1,0 +1,22 @@
+https://openclassrooms.com/fr/courses/1085676-upload-de-fichiers-par-formulaire
+
+AJOUT_BAR.PHP:
+<form method="post" action="reception.php" enctype="multipart/form-data">
+     <label for="icone">Photo du bar :</label><br />
+     <input type="file" name="bar_pic" id="bar_pic" /><br />
+     <input type="submit" name="submit" value="Envoyer" />
+</form>
+
+RECEPTION.PHP:
+<?php
+//test validite fichier
+if ($_FILES['bar_pic']['error'] > 0) $erreur = "Erreur lors du transfert";
+
+//deplacement dans dossier img
+$nom = "img/{$id_user}.{$extension_upload}";
+$resultat = move_uploaded_file($_FILES['bar_pic']['tmp_name'],$nom);
+if ($resultat) echo "Transfert réussi";
+?>
+
+Pour enregister dans la BDD :
+Ajout du champ varchar picture dans Bar avec picture = img/nom_photo 
