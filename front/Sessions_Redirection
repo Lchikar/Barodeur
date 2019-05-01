@@ -25,7 +25,7 @@ Remplir un formulaire (pseudo et mdp) avec comme balise
         header ("location: sign_in.php?erreur=err"); // redirige la page vers sign_in.php?erreur=err
     }
     else{
-      $sql = "INSERT INTO User VALUES ('".$pseudo."','".$mdp."');"; // ajout de l'utilisateur (verifier ajout id incrementation)
+      $sql = "INSERT INTO User(pseudo, mdp) VALUES ('".$pseudo."','".$mdp."');"; 
       $res = $bdd->query($sql);
       $res->closeCursor();	
 
