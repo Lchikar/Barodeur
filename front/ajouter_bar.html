@@ -64,19 +64,21 @@
                 <h2>Informations supplémentaires :</h2>
                 <input type="text" name="telephone_bar" id="input_telephone" placeholder="Téléphone" />
                 <input type="text" name="site_web" id="input_site_web" placeholder="Site web" />
-                <label for="jout_photo">Ajouter une photo du bar</label>
-                <input type="file" name="ajout_photo" id="ajout_photo" accept="image/png, image/jpeg" />
-                <select id="type_bar" name="type_bar">
-                    <option>Cocktail</option>
-                    <option>Lounge</option>
-                    <option>Shooter</option>
-                    <option>Biere</option>
-                    <option>Geek</option>
-                    <option>Irlandais</option>
-                    <option>Dansant</option>
-                    <option>Punk</option>
-                    <option>Kawaii</option>
-                </select>
+                <label for="ajout_photo" id="label_photo">Photo du bar : </label>
+                <input type="file" name="ajout_photo" id="ajout_photo" accept="image/png, image/jpeg"/>
+                <div id="div_select">
+                    <select id="type_bar" name="type_bar">
+                        <option>Cocktail</option>
+                        <option>Lounge</option>
+                        <option>Shooter</option>
+                        <option>Biere</option>
+                        <option>Geek</option>
+                        <option>Irlandais</option>
+                        <option>Dansant</option>
+                        <option>Punk</option>
+                        <option>Kawaii</option>
+                    </select>
+                </div>
                 <textarea name="plus_dinfos" id="input_plus_dinfos" cols="20" rows="5" placeholder="D'autres informations ?"></textarea>
             </div>
             <div id="notes_et_com">
