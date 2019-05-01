@@ -18,7 +18,7 @@
         <h2>Tu es à la recherche du bar perdu? <br/>
         		Tu es bien tombé.e ! <br/>
         		Ici, tu vas pouvoir noter, commenter, poster ou juste t'informer sur les bars du Jeudimac.</h2>
-        		
+        			
         		
         		<!------<?php
         			if($_GET['erreur']=='err'){
@@ -27,19 +27,19 @@
         			
         			}
         		?>---->
-        <form id="formConnexion" method="post" action="inscription.php">
+        <form id="formConnexion" method="post" action="">
             <div id="divConnexion">
                 <input type="text" name="pseudo" id="pseudo" placeholder=" Pseudo de la race"/>
                 <input type="password" name="mdp" id="mdp" placeholder=" Mot de passe de boloss" />
             </div>
             <div id="Sconnexion">	
-            <input type="submit" id="submitConnexion" value="Connexion" />
-            <input type="submit" id="submitConnexion" value="Inscription" />
+            <input type="submit" id="submitConnexion" value="Connexion" onClick="Connexion()"/>
+            <input type="submit" id="submitConnexion" value="Inscription" onClick="Inscription()"/>
             </div>
         </form>
     </main>
 
-
+  <script src="js/redirection.js"></script>
 </body>
 
 </html>
