@@ -19,7 +19,6 @@
         		Tu es bien tombé.e ! <br/>
         		Ici, tu vas pouvoir noter, commenter, poster ou juste t'informer sur les bars du Jeudimac.</h2>
         		
-        		
         		<!------<?php
         			if($_GET['erreur']=='err'){
         			//$message = '<h2>une erreur s\'est produite pendant votre identification. Vous devez remplir tous les champs</h2>
