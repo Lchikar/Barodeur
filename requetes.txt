@@ -42,6 +42,75 @@ ORDER BY Mark.value DESC
 
 Pour les requêtes 2, 3 et 4 : je n'ai pas pu tester parce qu'il n'y a aucun bar avec une note 'prix' pour l'instant 
 
+        **************************************************
+        
+1. Rajouter un bar :
+
+INSERT INTO Bar (name, numStreet, street, postalCode, website, numPhone, infos) VALUES
+('nom du bar', 'num dans la rue', 'Rue', code postal, 'site internet', 'numéro de téléphone', 'description');
+
+2. Ajouter la catégorie d'un bar :
+
+SET @id_bar = (SELECT id_bar FROM Bar WHERE name='nom du bar');
+SET @id_barType = (SELECT id_barType FROM BarType WHERE barType='nom du type');
+INSERT INTO BarBelongsType (id_bar, id_barType) VALUES
+(@id_bar, @id_barType);
+
+3. Ajouter utilisateur :
+
+INSERT INTO User (pseudo, password) 
+VALUES ('pseudo de l'utilisateur', 'son mdp');
+
+4.  Ajouter commentaire :
+
+SET @id_user = (SELECT id_user FROM User WHERE pseudo='nom utilisateur');
+SET @id_bar = (SELECT id_bar FROM Bar WHERE name='nom du bar');
+INSERT INTO Comment (id_user, id_bar, text) VALUES
+(@id_user, @id_bar, 'Commentaire');
+
+5. Ajouter note :
+
+SET @id_markType = (SELECT id_markType FROM markType WHERE markType='distance');
+SET @id_user = (SELECT id_user FROM User WHERE pseudo='pseudo utilisateur');
+SET @id_bar = (SELECT id_bar FROM Bar WHERE name='Le Falstaff');
+INSERT INTO Mark (id_markType, id_user, id_bar, value)
+VALUES (@id_markType, @id_user, @id_bar, '1');
+
+6. Ajouter ville :
+
+INSERT INTO City (postalCode, cityName)
+VALUES (code postal, 'Ville');
+
+7. Afficher un bar en fonction de son type : 
+
+SELECT * 
+FROM Bar, BarBelongsType, BarType
+WHERE BarType.barType = 'type de bar'
+AND BarType.id_barType = BarBelongsType.id_barType
+AND BarBelongsType.id_bar = Bar.id_bar;
+
+8. Trouver un bar avec son nom :
+
+SELECT * FROM Bar WHERE name = 'nom du bar';
+
+9. Classer les bars qui ont les meilleures notes dans une catégorie :
+    
+SELECT * 
+FROM Bar, Mark, markType
+WHERE markType.markType = 'type de note'
+AND markType.id_markType = Mark.id_markType
+AND Mark.id_bar = Bar.id_bar
+ORDER BY Mark.value DESC
+
+10. Modifier les infos d'un bar :
+
+UPDATE Bar SET (ce qu'on veut modifier)='sa nouvelle valeur' WHERE name='nom du bar';
+(exemple : UPDATE Bar SET infos='La baaase du jeudimac' WHERE name='Mil\'s Pub';)
+
+11. Supprimer les infos d'un bar :
+
+DELETE from Bar WHERE name='nom du bar';
+
 
 
 
