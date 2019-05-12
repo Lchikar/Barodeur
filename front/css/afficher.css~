@@ -45,7 +45,7 @@
     }
 
     #picture{
-        background-image: url(../image/bars/Falstaff.jpg);
+        background-image: url(../image/Mil.JPG);
         background-size: 100% 100%;
     }
 

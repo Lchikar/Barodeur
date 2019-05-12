@@ -117,21 +117,22 @@
         font-size: 20px;
     }
     #div_note1 div:nth-child(even){
-  		width: 40vw;
-  		margin-left: 5px;
+    	width: 40vw;
+    	margin-left: 5px;
     }
     #div_note1 div:nth-child(odd){
-    	width: 30vw;
-    	height: 5vh;
+    width: 30vw;
+    height: 5vh;
+
     }
     h3{
-    	margin:0;
-    }
+    	margin:0;}
+   
     #div_note1{
     	display: grid;
-      grid-template-columns: auto auto;
-      grid-template-rows: auto auto auto; 
-      align-items:center;
-      text-align: center;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto; 
+        align-items:center;
+        text-align: center;
      }
 }
