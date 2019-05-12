@@ -12,7 +12,8 @@
     if (empty($donnees["Pseudo"]) == False){
         $res->closeCursor();
         session_destroy(); // ferme la session et ecrase les cookies
-        header ("location: accueil.html"); // redirige la page vers accueil.html?erreur=err
+        header ("location: page_principale.html"); // redirige la page vers accueil.html?erreur=err
+        exit();
     }
     else{
       $sql = "INSERT INTO User(pseudo, mdp) VALUES ('".$pseudo."','".$mdp."');"; 
@@ -26,4 +27,5 @@
 
       header ("location:page_principale.html"); // redirection vers la page page_principale.html? new=pseudo
     }	
+exit();
   ?>

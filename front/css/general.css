@@ -82,7 +82,7 @@ body{
     font-size: 20px;
     font-weight: normal;
 }
-#submitConnexion{
+#submitConnexion, #submitInscription{
 	border-color: #65010c;
 	color: white;
     height: 50px;
