@@ -5,7 +5,12 @@ require_once 'MyPDO.class.php';
 // TO DO : à modifier
 // host=votre serveur (localhost si travail en local)
 // n'oubliez pas d'ajouter le port (sur mac notamment, ex: localhost:8080)
-MyPDO::setConfiguration('mysql:host=localhost;dbname=barodeur;charset=utf8', 'root', '');
+
+
+//MyPDO::setConfiguration('mysql:host=localhost;dbname=barodeur;charset=utf8', 'root', '');
+MyPDO::setConfiguration('mysql:host=91.216.107.164;dbname=lucie899583;charset=utf8', 'lucie899583', 'cqeg5bydbw');
+
+
 
 /*
 EXEMPLE DE CONFIGURATION ET D'UTILISATION
