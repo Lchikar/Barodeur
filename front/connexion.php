@@ -1,9 +1,9 @@
 <?php
-$dsn = 'mysql:host=91.216.107.164;dbname=lucie899583';
+$dsn = 'mysql:host=sqletud.u-pem.fr;dbname=lchikar_db';
 
 	try {
  
-$pdo = new PDO($dsn, 'lucie899583' , 'cqeg5bydbw');
+$pdo = new PDO($dsn, 'lchikar', 'qkiu8yaY8w');
 
 }
 catch (PDOException $e) {
