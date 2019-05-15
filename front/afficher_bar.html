@@ -2,6 +2,9 @@
 <html lang="fr" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 
 <head>
+<?php
+session_start();
+?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bienvenue à Bar à Gogo !">
@@ -76,7 +79,8 @@
 					<div>moy/5</div>
 				</form>
 				<h2>Commentaires :</h2>
-					<input type="text" name="comm" id="comm" placeholder="$data['pseudo'].Laisse ton commentaire"/>
+					<?php echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo']."Laisse ton commentaire'/>");
+					?>
 				<form id="Retour" method="post" action="accueil.html">
 				<input type="submit" id="retourA"value="Retour à l'accueil"/>
 				</form>
