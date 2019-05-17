@@ -13,7 +13,7 @@ $stmt->execute();
 
 if (isset($_POST['pseudo']) && isset($_POST['mdp'])) { // vérification des variables du formulaire
     while(($ligne = $stmt->fetch())){ // parcours de la requete (liste des pseudos et mdp de chaque user)
-        if( $_POST['pseudo'] == $ligne['pseudo'] && $_POST['mdp'] == $ligne['password']){
+        if( $_POST['pseudo'] == $ligne['pseudo'] && sha1($_POST['mdp']) == sha1($ligne['password'])){
         // user retrouvé
         $_SESSION['pseudo'] = $_POST['pseudo'];
         $_SESSION['mdp'] = $_POST['mdp'];
@@ -23,11 +23,13 @@ if (isset($_POST['pseudo']) && isset($_POST['mdp'])) { // vérification des vari
     if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])){
         header('location: page_principale.php'); // connexion reussie, redirection vers profil user
         exit();
-    }
-    else{
+    } else{
         header('location: accueil.html?err=err'); // echec connexion, redirection page de connexion
         exit();
     }
-}
+} else {
+        header('location: accueil.html?err=err'); // tous les champs n'ont pas été correctement remplis
+        exit();
+    }
 
 ?>
