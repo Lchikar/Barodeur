@@ -28,9 +28,14 @@
 			</div>
 		</nav>
 		
-		<div id="affiche_bar" >
-			<h1>Test  blabla chicas que calor me gusta el mojito</h1>
-		</div>
+		<div id="AllBars"> 
+			<div id="affiche_bar" > 
+				<div id="picture"> </div> 
+				<div id="infos"> Infos bar</div>
+				<p id="moy">Note Moyenne [notebdd]/5</p> 
+			</div>
+ 
+		</div> 
 		
 		<!--deuxieme interface quand on clique sur le bouton-->
 		
