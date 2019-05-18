@@ -52,13 +52,13 @@
     <main>
         <h1>Ajouter un bar</h1>
         <form id="form_ajout_bar" method="post" action="ajout_bar.php">
-            <input type="text" name="nom_bar" id="input_nom_bar" placeholder="Nom du bar*"  />
+            <input type="text" name="nom_bar" id="input_nom_bar" placeholder="Nom du bar*" required />
             <div id="adresse_bar">
                 <h2>Adresse du bar :</h2>
-                <input type="text" name="numero_rue" id="input_numero_rue" placeholder="Numéro de rue*"  />
-                <input type="text" name="adresse" id="input_adresse_bar" placeholder="Adresse*"  />
-                <input type="text" name="ville" id="input_ville_bar" placeholder="Ville*"  />
-                <input type="text" name="code_postal" id="input_code_postal" placeholder="Code postal*"  />
+                <input type="text" name="numero_rue" id="input_numero_rue" placeholder="Numéro de rue*" required />
+                <input type="text" name="adresse" id="input_adresse_bar" placeholder="Adresse*" required />
+                <input type="text" name="ville" id="input_ville_bar" placeholder="Ville*" required />
+                <input type="text" name="code_postal" id="input_code_postal" placeholder="Code postal*" required />
             </div>
             <div id="infos_sup">
                 <h2>Informations supplémentaires :</h2>
