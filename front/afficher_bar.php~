@@ -4,6 +4,11 @@
 <head>
 <?php
 session_start();
+require_once 'MyPDO.db.include.php'; // connexion à la bdd
+
+if(!isset($_GET['bar'])){
+	echo "Erreur GET\n";
+}
 ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,15 +36,45 @@ session_start();
 		</nav>
 		
 		<div id="affiche_bar" >
+			<?php
+				$stmt =  MyPDO::getInstance()->prepare(
+				"SELECT name, 
+				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse,
+				website, numPhone, infos, photo
+				FROM Bar NATURAL JOIN City
+				WHERE Bar.name = :bar");
+				$stmt->bindValue(':bar', $_GET['bar']);
+				$stmt->execute();	
+			?>
 			<div id="top">
-				<div id="picture"> </div>
-				<div id="infos"> Infos bar</div>
+				<div id="picture"> 
+				<?php 
+				while($general = $stmt->fetch()){
+					$src = "image/bars/".$general['photo'];
+					echo ('<img class="photo"
+				     src="'.$src.'"
+				     alt="'.$general['name'].'" height="240" width="280"/>');
+				}
+				?>
+				</div>
+				<div id="infos"> Infos bar
+				<?php
+				$stmt->execute();
+				while($general = $stmt->fetch()){
+					echo "<br>".$general['name']."<br>";
+					echo "<br>".$general['adresse']."<br>";
+					echo "<br>".$general['website']."<br>";
+					echo "<br>".$general['numPhone']."<br>";
+					echo "<br>".$general['infos']."<br>";
+				}
+				?>
+				</div>
 			</div>
 			<div id="bottom">
 				
 				<form id="notes" method="post" action="">
 				<div><h2>Notes :</h2></div>
-				<div></div>
+				<div> </div>
 				<div><h2>Moyenne :</h2></div>
 				<div ><h3 class="h3">Ambiance :</h3></div>
 					<div >
@@ -49,7 +84,25 @@ session_start();
 					<button class="ambiance1" type="button"> 4</button>
 					<button class="ambiance1" type="button"> 5</button>
 					</div>
-				<div>moy/5</div>
+				<div>
+					<?php
+						$stmt =  MyPDO::getInstance()->prepare(
+						"SELECT Mark.value as 'value'
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+						WHERE Bar.name = :bar AND markType.markType = 'ambiance';");
+						$stmt->bindValue(':bar', $_GET['bar']);
+						
+						$stmt->execute();
+						$cpt = 0; $somme = 0;	
+						while($note = $stmt->fetch()){
+							$cpt ++;
+							$somme += $note['value'];
+						}
+						if(0 == $cpt) $moy = 0;
+						else $moy = $somme/$cpt;
+						echo $moy."/5";
+					?>
+				</div>
 				<div ><h3 class="h3">Prix :</h3></div>
 					<div >
 					<button class="Prix1" type="button"> 1</button>
@@ -58,7 +111,24 @@ session_start();
 					<button class="Prix1" type="button"> 4</button>
 					<button class="Prix1" type="button"> 5</button>
 					</div>
-					<div>moy/5</div>
+					<div>
+						<?php
+						$stmt =  MyPDO::getInstance()->prepare(
+						"SELECT Mark.value as 'value'
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+						WHERE Bar.name = :bar AND markType.markType = 'prix';");
+						$stmt->bindValue(':bar', $_GET['bar']);
+						
+						$stmt->execute();
+						$cpt = 0; $somme = 0;	
+						while($note = $stmt->fetch()){
+							$cpt ++;
+							$somme += $note['value'];
+						}
+						if(0 == $cpt) $moy = 0;
+						else $moy = $somme/$cpt;
+						echo $moy."/5";
+					?></div>
 				<div ><h3 class="h3">Distance :</h3></div>
 					<div >
 					<button class="Distance1" type="button"> 1</button>
@@ -67,7 +137,24 @@ session_start();
 					<button class="Distance1" type="button"> 4</button>
 					<button class="Distance1" type="button"> 5</button>
 					</div>
-					<div>moy/5</div>
+					<div>
+						<?php
+						$stmt =  MyPDO::getInstance()->prepare(
+						"SELECT Mark.value as 'value'
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+						WHERE Bar.name = :bar AND markType.markType = 'distance';");
+						$stmt->bindValue(':bar', $_GET['bar']);
+						
+						$stmt->execute();
+						$cpt = 0; $somme = 0;	
+						while($note = $stmt->fetch()){
+							$cpt ++;
+							$somme += $note['value'];
+						}
+						if(0 == $cpt) $moy = 0;
+						else $moy = $somme/$cpt;
+						echo $moy."/5";
+					?></div>
 				<div ><h3 class="h3">Général :</h3></div>
 					<div >
 					<button class="Général1" type="button"> 1</button>
@@ -76,10 +163,28 @@ session_start();
 					<button class="Général1" type="button"> 4</button>
 					<button class="Général1" type="button"> 5</button>
 					</div>
-					<div>moy/5</div>
+					<div>
+						<?php
+						$stmt =  MyPDO::getInstance()->prepare(
+						"SELECT Mark.value as 'value'
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+						WHERE Bar.name = :bar AND markType.markType = 'general';");
+						$stmt->bindValue(':bar', $_GET['bar']);
+						
+						$stmt->execute();
+						$cpt = 0; $somme = 0;	
+						while($note = $stmt->fetch()){
+							$cpt ++;
+							$somme += $note['value'];
+						}
+						if(0 == $cpt) $moy = 0;
+						else $moy = $somme/$cpt;
+						echo $moy."/5";
+					?></div>
 				</form>
 				<h2>Commentaires :</h2>
-					<?php echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo']."Laisse ton commentaire'/>");
+					<?php 
+						echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo'].", laisse ton commentaire'/>");
 					?>
 				<form id="Retour" method="post" action="accueil.html">
 				<input type="submit" id="retourA"value="Retour à l'accueil"/>
@@ -110,7 +215,7 @@ session_start();
 
 	
 
-    <script src="js/menuAfficher.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 
 </html>

@@ -110,7 +110,7 @@ session_start();
 
 	
 
-    <script src="js/menuAfficher.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 
 </html>

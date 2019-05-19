@@ -215,7 +215,7 @@ if(!isset($_GET['bar'])){
 
 	
 
-    <script src="js/menu.js"></script>
+    <script src="js/menuAfficher.js"></script>
 </body>
 
 </html>
