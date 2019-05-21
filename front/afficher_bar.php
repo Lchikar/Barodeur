@@ -187,8 +187,23 @@ if(!isset($_GET['bar'])){
 						echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo'].", laisse ton commentaire'/>");
 					?>
 				<form id="Retour" method="post" action="accueil.html">
-				<input type="submit" id="retourA"value="Retour à l'accueil"/>
+					<input type="submit" id="retourA"value="Retour à l'accueil"/>
 				</form>
+				<div class="commentaires">
+					<?php
+						$stmt =  MyPDO::getInstance()->prepare(
+						"SELECT User.pseudo, 
+						Comment.text 
+						FROM Bar NATURAL JOIN Comment NATURAL JOIN User 
+						WHERE Bar.name = :bar ORDER BY Comment.id_comment;");
+						$stmt->bindValue(':bar', $_GET['bar']);
+						$stmt->execute();
+
+						while($comm = $stmt->fetch()){
+							echo $comm['pseudo']." dit :\"".$comm['text']."\"";
+						}
+					?>
+				</div>
 			</div>
 		</div>
 		
