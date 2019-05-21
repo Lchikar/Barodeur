@@ -51,7 +51,7 @@
     
     <main>
         <h1>Ajouter un bar</h1>
-        <form id="form_ajout_bar" method="post" action="ajout_bar.php">
+        <form id="form_ajout_bar" method="post" action="ajout_bar.php" enctype="multipart/form-data" >
             <input type="text" name="nom_bar" id="input_nom_bar" placeholder="Nom du bar*" required />
             <div id="adresse_bar">
                 <h2>Adresse du bar :</h2>
@@ -64,8 +64,9 @@
                 <h2>Informations supplémentaires :</h2>
                 <input type="text" name="telephone_bar" id="input_telephone" placeholder="Téléphone" />
                 <input type="text" name="site_web" id="input_site_web" placeholder="Site web" />
+                <!--<input type="hidden" name="MAX_FILE_SIZE" value="1000000">-->
                 <label for="ajout_photo" id="label_photo">Photo du bar : </label>
-                <input type="file" name="ajout_photo" id="ajout_photo" accept="image/png, image/jpeg"/>
+                <input type="file" name="ajout_photo" id="ajout_photo" accept="image/png, image/jpg"/>
                 <div id="div_select">
                     <select id="type_bar" name="type_bar">
                         <option>Cocktail</option>
