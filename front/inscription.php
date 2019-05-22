@@ -1,31 +1,40 @@
- <?php 
-  session_start(); // permet d'accéder aux cookies, se trouve en début de chaque page qui en a besoin
+<?php 
+session_start(); // permet d'accéder aux cookies, se trouve en début de chaque page qui en a besoin
+require_once 'MyPDO.db.include.php'; // connexion à la bdd
+$stmt1 = MyPDO::getInstance()->prepare(<<<SQL
+    SELECT pseudo, password FROM User
+SQL
+); 
 
-  include("connexion.php"); // connexion.php : fichier où on se connecte à la BDD
-  $pseudo = $_POST["pseudo"];
-  $mdp = sha1($_POST["mdp"]); // la fonction sha1(string) crypte une chaine de caractere
-  
-  $sql = "SELECT pseudo FROM User WHERE Pseudo ='".$pseudo."';";
-  $res = $bdd->query($sql);
-  $donnees=$res->fetch();	
- 
-    if (empty($donnees["Pseudo"]) == False){
-        $res->closeCursor();
-        session_destroy(); // ferme la session et ecrase les cookies
-        header ("location: page_principale.html"); // redirige la page vers accueil.html?erreur=err
-        exit();
+$pseudo = $_POST['pseudo'];
+$mdp = sha1($_POST["mdp"]);// la fonction sha1(string) crypte une chaine de caractere
+echo "mdp : ".$mdp;
+
+$stmt1->execute();
+
+if (isset($_POST['pseudo']) && isset($_POST['mdp'])) { // vérification des variables du formulaire
+    while(($ligne = $stmt1->fetch())){ // parcours de la requete (liste des pseudos et mdp de chaque user)
+        if( $pseudo == $ligne['pseudo']){
+            header('location: accueil.html?err=errpseudo');// pseudo déjà utilisé
+            exit();
+        }
     }
-    else{
-      $sql = "INSERT INTO User(pseudo, mdp) VALUES ('".$pseudo."','".$mdp."');"; 
-      $res = $bdd->query($sql);
-      $res->closeCursor();	
+    
+    $stmt2 = MyPDO::getInstance()->prepare(<<<SQL
+        INSERT INTO User(pseudo, password) VALUES ('$pseudo','$mdp')
+SQL
+);
+    $stmt2->execute();
+    
+    $_SESSION['pseudo'] = $_POST['pseudo'];
+    $_SESSION['mdp'] = $_POST['mdp'];
+            
+    header ("location:page_principale.html"); // redirection vers la page page_principale.html? new=pseudo
+    exit();
+    
+} else {
+    header('location: accueil.html?err=errManqueInfos');// tous les champs n'ont pas été correctement remplis
+    exit();
+}
 
-      $_SESSION["pseudo"] = $pseudo;
-      $_SESSION["mdp"] = $mdp;
-      // à partir de maintenant, dans toutes les pages où on n'a pas encore fait de session_destroy()
-      // les variable $_SESSION["pseudo"] et $_SESSION["mdp"] sont accessibles
-
-      header ("location:page_principale.html"); // redirection vers la page page_principale.html? new=pseudo
-    }	
-exit();
-  ?>
+?>
