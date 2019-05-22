@@ -103,26 +103,105 @@ if(isset($_POST['commentaire_ajout']) && !empty($_POST['commentaire_ajout'])){
     echo $commentaire_ajout."</br>";
 }
 
-$stmt = MyPDO::getInstance()->prepare(<<<SQL
-        INSERT INTO Bar (name, numStreet, street, postalCode, website, numPhone, infos) 
-        VALUES('$nom_bar', '$numero_rue', '$adresse', '$code_postal', '$site_web', '$telephone_bar', '$plus_dinfos')
-SQL
-);
+$stmt = MyPDO::getInstance()->prepare(
+        "INSERT IGNORE INTO City(postalCode, cityName) VALUES (:code_postal, :ville);");
 
+$stmt->bindValue(':code_postal', $code_postal);
+$stmt->bindValue(':ville', $ville);
 $stmt->execute();
-echo "ca a marché ! "."</br>";
+$stmt->closeCursor();
+
+$stmt3 = MyPDO::getInstance()->prepare(
+        "INSERT INTO Bar (name, numStreet, street, postalCode, website, numPhone, infos) 
+        VALUES(:bar, :num_rue, :adresse, 
+            (SELECT postalCode FROM City WHERE postalCode = :code_postal),
+            :site_web, :tel, :infos);");
+
+$stmt3->bindValue(':bar', $nom_bar);
+$stmt3->bindValue(':num_rue', $numero_rue);
+$stmt3->bindValue(':adresse', $adresse);
+$stmt3->bindValue(':code_postal', $code_postal);
+$stmt3->bindValue(':site_web', $site_web);
+$stmt3->bindValue(':tel', $telephone_bar);
+$stmt3->bindValue(':infos', $plus_dinfos);
+$stmt3->execute();
+$stmt3->closeCursor();
+
+$stmt4 = MyPDO::getInstance()->prepare(
+        "INSERT INTO BarBelongsType VALUES (
+            (SELECT Bar.id_bar FROM Bar WHERE Bar.name = :bar),
+            (SELECT BarType.id_barType FROM BarType WHERE BarType.barType = :type));");
+
+$stmt4->bindValue(':bar', $nom_bar);            
+$stmt4->bindValue(':type', $type_bar);
+$stmt4->execute();
+$stmt4->closeCursor();
+
+$stmt5 = MyPDO::getInstance()->prepare(
+        "INSERT INTO Comment (id_user, id_bar, text) VALUES (
+            (SELECT User.id_user FROM User WHERE User.pseudo = :pseudo),
+            (SELECT Bar.id_bar FROM Bar WHERE Bar.name = :bar),
+            :comm);");
+
+$stmt5->bindValue(':bar', $nom_bar);
+$stmt5->bindValue(':pseudo', $_SESSION['pseudo']);
+$stmt5->bindValue(':comm', $commentaire_ajout);
+$stmt5->execute();
+$stmt5->closeCursor();
+
+echo "GENERAL ca a marché ! "."</br>";
 
 
-$stmt2 = MyPDO::getInstance()->prepare(<<<SQL
-    SET @id_bar = (SELECT id_bar FROM Bar WHERE name='$nom_bar');
-    SET @id_barType = (SELECT id_barType FROM BarType WHERE barType='$type_bar');
-    INSERT INTO BarBelongsType (id_bar, id_barType) 
-    VALUES (@id_bar, @id_barType);
-SQL
-);
+if(isset($_POST['prix1'])) $markprice = $_POST['prix1'];
+else if(isset($_POST['prix2'])) $markprice = $_POST['prix2'];
+else if(isset($_POST['prix3'])) $markprice = $_POST['prix3'];
+else if(isset($_POST['prix4'])) $markprice = $_POST['prix4'];
+else if(isset($_POST['prix5'])) $markprice = $_POST['prix5'];
+else $markprice = 0;
 
-$stmt2->execute();
-echo "insertion type ok"."</br>";
+if(isset($_POST['ambi1'])) $markambi = $_POST['ambi1'];
+else if(isset($_POST['ambi2'])) $markambi = $_POST['ambi2'];
+else if(isset($_POST['ambi3'])) $markambi = $_POST['ambi3'];
+else if(isset($_POST['ambi4'])) $markambi = $_POST['ambi4'];
+else if(isset($_POST['ambi5'])) $markambi = $_POST['ambi5'];
+else $markambi = 0;
+
+if(isset($_POST['dist1'])) $markdist = $_POST['dist1'];
+else if(isset($_POST['dist2'])) $markdist = $_POST['dist2'];
+else if(isset($_POST['dist3'])) $markdist = $_POST['dist3'];
+else if(isset($_POST['dist4'])) $markdist = $_POST['dist4'];
+else if(isset($_POST['dist5'])) $markdist = $_POST['dist5'];
+else $markdist = 0;
+
+if(isset($_POST['gen1'])) $markgen = $_POST['gen1'];
+else if(isset($_POST['gen2'])) $markgen = $_POST['gen2'];
+else if(isset($_POST['gen3'])) $markgen = $_POST['gen3'];
+else if(isset($_POST['gen4'])) $markgen = $_POST['gen4'];
+else if(isset($_POST['gen5'])) $markgen = $_POST['gen5'];
+else $markgen = 0;
+
+$marktypes = array('ambiance' => $markambi, 'general' => $markgen,
+             'prix' => $markprice, 'distance' => $markdist);
+
+foreach ($marktypes as $marktype => $markvalue) {
+    $stmt2 = MyPDO::getInstance()->prepare(
+            "INSERT INTO Mark (id_markType, id_user, id_bar, value) VALUES(
+            (SELECT markType.id_markType FROM markType WHERE markType.markType = :markType),
+            (SELECT User.id_user FROM User WHERE User.pseudo = :pseudo),
+            (SELECT Bar.id_bar FROM Bar WHERE Bar.name = :bar),
+            :value_mark);");
+
+    $stmt2->bindValue(':markType', $marktype);
+    $stmt2->bindValue(':value_mark', $markvalue);
+    $stmt2->bindValue(':pseudo', $_SESSION['pseudo']);
+    $stmt2->bindValue(':bar', $nom_bar);
+
+    $stmt2->execute();
+    $stmt2->closeCursor();
+}
+
+
+echo "insertion note ok"."</br>";
 
 /*$stmt3 = MyPDO::getInstance()->prepare(<<<SQL
     INSERT INTO Bar(photo)

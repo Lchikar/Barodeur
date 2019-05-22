@@ -2,10 +2,7 @@
 session_start(); // on ouvre une session pour utiliser les cookies
 session_unset (); // met à zero les cookies au cas où il y avait une autre session d'ouverte
 require_once 'MyPDO.db.include.php'; // connexion à la bdd
-$stmt = MyPDO::getInstance()->prepare(<<<SQL
-    SELECT pseudo, password FROM User
-SQL
-); 
+$stmt = MyPDO::getInstance()->prepare("SELECT pseudo, password FROM User"); 
 // recherche des tous les users
 
 $stmt->execute();
