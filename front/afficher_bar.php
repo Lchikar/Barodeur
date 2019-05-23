@@ -16,7 +16,7 @@ if(!isset($_GET['bar'])){
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="css/afficher.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
-    <title>Page principale</title>
+    <title>Page Bar</title>
 </head>
 
 <body>
@@ -31,8 +31,8 @@ if(!isset($_GET['bar'])){
 				</form>
 			</div>
 			<div>
-				<input type="submit" id="deconnection" value="" />
-			</div>
+                <a href="deconnexion.php" id="deconnexion"></a>
+            </div>
 		</nav>
 		
 		<div id="affiche_bar" >
@@ -224,7 +224,7 @@ if(!isset($_GET['bar'])){
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
-    			<input type="submit"  value="Se déconnecter" />
+    			<a href="deconnexion.php" id="deconnexion"></a>
     	</form>
     </div>
 
