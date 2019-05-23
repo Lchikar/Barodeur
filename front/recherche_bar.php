@@ -28,9 +28,9 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 					<input type="text" name="rechercher" id="rechercher" placeholder="Rechercher" />
 				</form>
 			</div>
-			<div>
-				<input type="submit" id="deconnection" value="" />
-			</div>
+			<a href="deconnexion.php" class="deconnexion">
+                <div id="divDeco"></div>
+            </a>
 		</nav>
 		
 		<div id="AllBars">
@@ -77,8 +77,6 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 						}
 					?>
 				</div>
-			</div>
-		</div>
 		
 		<!--deuxieme interface quand on clique sur le bouton-->
 		
@@ -97,7 +95,9 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
-    			<input type="submit"  value="Se déconnecter" />
+    			<a href="deconnexion.php" class="deconnexion">
+                    <div id="divDeco"></div>
+                </a>
     	</form>
     </div>
 

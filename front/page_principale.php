@@ -28,9 +28,9 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 					<input type="text" name="rechercher" id="rechercher" placeholder="Rechercher" />
 				</form>
 			</div>
-			<div id="divDeco">
-				<a href="deconnexion.php" class="deconnexion"></a>
-			</div>
+			<a href="deconnexion.php" class="deconnexion">
+                <div id="divDeco"></div>
+            </a>
 		</nav>
 		
 		<div id="AllBars">
@@ -47,8 +47,8 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 				$stmt =  MyPDO::getInstance()->prepare(
 				"SELECT DISTINCT name, photo, 
 				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse
-				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN markType
-				WHERE markType.markType = '$tri' 
+				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN MarkType
+				WHERE MarkType.markType = '$tri' 
 				ORDER BY Mark.value DESC;");
 
 				$stmt->execute();	
@@ -89,8 +89,6 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 						}
 					?>
 				</div>
-			</div>
-		</div>
 		
 		<!--deuxieme interface quand on clique sur le bouton-->
 		
@@ -109,7 +107,9 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
-				<a href="deconnexion.php" class="deconnexion">Se déconnecter</a>
+				<a href="deconnexion.php" class="deconnexion">
+                    <div id="divDeco"></div>
+                </a>
     	</form>
     </div>
 

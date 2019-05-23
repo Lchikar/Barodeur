@@ -16,6 +16,7 @@
         background-color: #85000c; 
         height: 15vh; 
         min-width: 100vw; 
+        align-content: center;
     } 
  
     #menu div { 
@@ -56,18 +57,23 @@
     #affiche_bar h1 { 
         margin: 15px; 
     } 
+    
     .divDeco{
         display: block;
         height: 15vh;
+        width: 10vw;
     }
+    
+    #menu .deconnexion{
+        margin-right: auto;
+    }
+    
     .deconnexion { 
         background-image: url(../image/deco.png); 
         background-repeat: no-repeat; 
-        height: 50px; 
-        width: 50px; 
+        height: 9vh;
+        width: 9vh;
         background-size: contain; 
-        border: none; 
-        background-color: #85000c; 
     } 
  
     #classer { 
@@ -139,7 +145,7 @@
         border-width: 0; 
     } 
  
-    input[type="submit"i], .deconnexion { 
+    input[type="submit"i] { 
         border-radius: 20px; 
         margin: auto; 
         width: 55vw; 

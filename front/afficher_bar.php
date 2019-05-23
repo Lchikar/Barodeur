@@ -30,9 +30,9 @@ if(!isset($_GET['bar'])){
 					<input type="text" name="rechercher"  placeholder="Rechercher" />
 				</form>
 			</div>
-			<div>
-				<input type="submit" id="deconnection" value="" />
-			</div>
+			<a href="deconnexion.php" class="deconnexion">
+                <div class="divDeco"></div>
+            </a>
 		</nav>
 		
 		<div id="affiche_bar" >
@@ -224,7 +224,9 @@ if(!isset($_GET['bar'])){
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
-    			<input type="submit"  value="Se déconnecter" />
+    			<a href="deconnexion.php" class="deconnexion">
+                    <div id="divDeco"></div>
+                </a>
     	</form>
     </div>
 
