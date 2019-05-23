@@ -97,8 +97,8 @@ if(!isset($_GET['bar'])){
 					<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
-						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-						WHERE Bar.name = :bar AND markType.markType = 'ambiance';");
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
+						WHERE Bar.name = :bar AND MarkType.markType = 'ambiance';");
 						$stmt->bindValue(':bar', $_GET['bar']);
 						
 						$stmt->execute();
@@ -124,8 +124,8 @@ if(!isset($_GET['bar'])){
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
-						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-						WHERE Bar.name = :bar AND markType.markType = 'prix';");
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
+						WHERE Bar.name = :bar AND MarkType.markType = 'prix';");
 						$stmt->bindValue(':bar', $_GET['bar']);
 						
 						$stmt->execute();
@@ -150,8 +150,8 @@ if(!isset($_GET['bar'])){
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
-						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-						WHERE Bar.name = :bar AND markType.markType = 'distance';");
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
+						WHERE Bar.name = :bar AND MarkType.markType = 'distance';");
 						$stmt->bindValue(':bar', $_GET['bar']);
 						
 						$stmt->execute();
@@ -176,8 +176,8 @@ if(!isset($_GET['bar'])){
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
-						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-						WHERE Bar.name = :bar AND markType.markType = 'general';");
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
+						WHERE Bar.name = :bar AND MarkType.markType = 'general';");
 						$stmt->bindValue(':bar', $_GET['bar']);
 						
 						$stmt->execute();
