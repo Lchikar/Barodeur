@@ -206,26 +206,25 @@ INSERT INTO `Mark` (`id_mark`, `id_markType`, `id_user`, `id_bar`, `value`) VALU
 -- --------------------------------------------------------
 
 --
--- Structure de la table `markType`
+-- Structure de la table `MarkType`
 --
 
-DROP TABLE IF EXISTS `markType`;
-CREATE TABLE IF NOT EXISTS `markType` (
+DROP TABLE IF EXISTS `MarkType`;
+CREATE TABLE IF NOT EXISTS `MarkType` (
   `id_markType` int(11) NOT NULL,
   `markType` varchar(124) DEFAULT NULL,
   PRIMARY KEY (`id_markType`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `markType`
+-- Déchargement des données de la table `MarkType`
 --
 
-INSERT INTO `markType` (`id_markType`, `markType`) VALUES
+INSERT INTO `MarkType` (`id_markType`, `markType`) VALUES
 (1, 'generale'),
 (2, 'prix'),
 (3, 'ambiance'),
-(4, 'service'),
-(5, 'rapport qualite-prix');
+(4, 'distance');
 
 -- --------------------------------------------------------
 
@@ -277,7 +276,7 @@ ALTER TABLE `Comment`
 -- Contraintes pour la table `Mark`
 --
 ALTER TABLE `Mark`
-  ADD CONSTRAINT `FK_id_markType` FOREIGN KEY (`id_markType`) REFERENCES `markType` (`id_markType`),
+  ADD CONSTRAINT `FK_id_markType` FOREIGN KEY (`id_markType`) REFERENCES `MarkType` (`id_markType`),
   ADD CONSTRAINT `mark_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `User` (`id_user`),
   ADD CONSTRAINT `mark_ibfk_2` FOREIGN KEY (`id_bar`) REFERENCES `Bar` (`id_bar`);
 COMMIT;
