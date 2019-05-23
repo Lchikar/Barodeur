@@ -5,8 +5,6 @@
 <?php
 session_start();
 require_once 'MyPDO.db.include.php'; // connexion à la bdd
-
-
 ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +12,12 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
+    <style type="text/css">
+	   a {
+	   	color:inherit;
+	      text-decoration:none;
+	   }
+	</style>
     <title>Page principale</title>
 </head>
 
@@ -21,7 +25,7 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 	
 		<nav id="menu" >
 			<div id="classement">
-				<div id="classer"  onClick="Afficher()"></div>
+				<!--<div id="classer"  onClick="Afficher()"></div>-->
 			</div>
 			<div>
 				<form id="formRecherche" method="get" action="recherche_bar.php">
@@ -36,26 +40,29 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 		<div id="AllBars">
 			<?php
 				//affiche tri ou par defaut
-				
 				if(isset($_GET['type'])){
-					echo 'type '.$_GET['type'].'<br>';
-					$tri = $_GET['type'];
-				} else $tri = 'generale';
-
-				echo "tri -> ".$tri."<br>";
+					$markType = $_GET['type'];
+					$cond = "WHERE markType.markType = '$markType'";
+					$order="ORDER BY Mark.value DESC";
+				} 
+				else {
+					$markType = 'generale';
+					$cond="";
+					$order="";
+				}
 
 				$stmt =  MyPDO::getInstance()->prepare(
 				"SELECT DISTINCT name, photo, 
 				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse
-				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN MarkType
-				WHERE MarkType.markType = '$tri' 
-				ORDER BY Mark.value DESC;");
+				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN markType
+				$cond
+				$order;");
 
 				$stmt->execute();	
-				echo "test<br>";
 
 				while($general = $stmt->fetch()){
-					echo '<div id="affiche_bar" onClick="ChangePage()">';
+					echo '<div id="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
+					echo '<div id="affiche_bar" >';
 							$src = "image/bars/".$general['photo'];
 							echo ('<div id="picture"> <img class="photo"
 							 src="'.$src.'"
@@ -69,11 +76,13 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 
 							 $name_bar = $general['name'];
 							 
+							 if($cond != "")
+							 	$cond = "AND markType.markType = '$markType'"; 
 							 echo '<div id="moy">';
 							 $stmt2 =  MyPDO::getInstance()->prepare(
 								"SELECT Mark.value as 'value'
 								FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-								WHERE Bar.name =\"$name_bar\" AND '$tri';");
+								WHERE Bar.name =\"$name_bar\" $cond;");
 								
 							$stmt2->execute();
 							$cpt = 0; $somme = 0;	
@@ -83,12 +92,16 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 							}
 							if(0 == $cpt) $moy = 0;
 							else $moy = $somme/$cpt;
-							echo "<br>".$tri." : ".$moy."/5";
+							echo "<br>".$markType." : ".$moy."/5";
 							echo "</div>";
 							echo "</div>";
+							echo '</a></div>';
+							echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
 						}
 					?>
 				</div>
+			</div>
+		</div>
 		
 		<!--deuxieme interface quand on clique sur le bouton-->
 		
