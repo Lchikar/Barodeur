@@ -16,7 +16,7 @@ if(!isset($_GET['bar'])){
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="css/afficher.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
-    <title>Page Bar</title>
+    <title>Afficher bar</title>
 </head>
 
 <body>
@@ -31,8 +31,8 @@ if(!isset($_GET['bar'])){
 				</form>
 			</div>
 			<div>
-                <a href="deconnexion.php" id="deconnexion"></a>
-            </div>
+				<input type="submit" id="deconnection" value="" />
+			</div>
 		</nav>
 		
 		<div id="affiche_bar" >
@@ -46,7 +46,7 @@ if(!isset($_GET['bar'])){
 				$stmt->bindValue(':bar', $_GET['bar']);
 				$stmt->execute();	
 			?>
-			<div id="top">
+				<div id="top">
 				<div id="picture"> 
 				<?php 
 				while($general = $stmt->fetch()){
@@ -57,15 +57,23 @@ if(!isset($_GET['bar'])){
 				}
 				?>
 				</div>
-				<div id="infos"> Infos bar
+				<div id="infos">
 				<?php
 				$stmt->execute();
 				while($general = $stmt->fetch()){
-					echo "<br>".$general['name']."<br>";
+					echo "<h3>".$general['name']."</h3>";
 					echo "<br>".$general['adresse']."<br>";
-					echo "<br>".$general['website']."<br>";
-					echo "<br>".$general['numPhone']."<br>";
-					echo "<br>".$general['infos']."<br>";
+					echo $general['numPhone']."<br>";
+					echo "<a href=".$general['website']."target=\"_blank\"><u>Site du bar</u></a>";
+				}
+				?>
+				</div>
+			
+				<div id="informations">
+				<?php
+				$stmt->execute();
+				while($general = $stmt->fetch()){
+					echo $general['infos'];
 				}
 				?>
 				</div>
@@ -103,7 +111,7 @@ if(!isset($_GET['bar'])){
 						echo $moy."/5";
 					?>
 				</div>
-				<div ><h3 class="h3">Prix :</h3></div>
+				<div ><h3>Prix :</h3></div>
 					<div >
 					<button class="Prix1" type="button"> 1</button>
 					<button class="Prix1" type="button"> 2</button>
@@ -181,28 +189,20 @@ if(!isset($_GET['bar'])){
 						else $moy = $somme/$cpt;
 						echo $moy."/5";
 					?></div>
+					
 				</form>
 				<h2>Commentaires :</h2>
 					<?php 
 						echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo'].", laisse ton commentaire'/>");
+						
 					?>
-				<form id="Retour" method="post" action="accueil.html">
-					<input type="submit" id="retourA"value="Retour à l'accueil"/>
+				<div id="boutons">
+				<form id="Publie" method="post" action="">
+				<input type="submit" id="publieA"value="Publie ton comm'"/>
 				</form>
-				<div class="commentaires">
-					<?php
-						$stmt =  MyPDO::getInstance()->prepare(
-						"SELECT User.pseudo, 
-						Comment.text 
-						FROM Bar NATURAL JOIN Comment NATURAL JOIN User 
-						WHERE Bar.name = :bar ORDER BY Comment.id_comment;");
-						$stmt->bindValue(':bar', $_GET['bar']);
-						$stmt->execute();
-
-						while($comm = $stmt->fetch()){
-							echo $comm['pseudo']." dit :\"".$comm['text']."\"";
-						}
-					?>
+				<form id="Retour" method="post" action="page_principale.php">
+				<input type="submit" id="retourA"value="Retour"/>
+				</form>
 				</div>
 			</div>
 		</div>
@@ -224,7 +224,7 @@ if(!isset($_GET['bar'])){
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
-    			<a href="deconnexion.php" id="deconnexion"></a>
+    			<input type="submit"  value="Se déconnecter" />
     	</form>
     </div>
 
