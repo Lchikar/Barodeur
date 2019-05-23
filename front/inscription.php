@@ -29,7 +29,7 @@ SQL
     $_SESSION['pseudo'] = $_POST['pseudo'];
     $_SESSION['mdp'] = $_POST['mdp'];
             
-    header ("location:page_principale.html"); // redirection vers la page page_principale.html? new=pseudo
+    header ("location:page_principale.php"); // redirection vers la page page_principale.html? new=pseudo
     exit();
     
 } else {
