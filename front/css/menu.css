@@ -49,11 +49,22 @@
     }
        
       #picture{ 
-        background-image: url(../image/bars/Falstaff.jpg); 
-        background-size: 100% 100%;	
         margin: 3px; 
     }
-         
+    
+    #infos{ 
+        margin-left: 3px; 
+    }
+     #moy{ 
+        margin: 3px; 
+        max-height : 10vh;
+    }
+    .photo{
+        max-width: 100%;
+        height: auto;
+        
+    }
+      
     #affiche_bar h1 { 
         margin: 15px; 
     } 

@@ -15,6 +15,7 @@ if(!isset($_GET['bar'])){
     <meta name="description" content="Bienvenue à Bar à Gogo !">
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="css/afficher.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
     <title>Page Bar</title>
 </head>

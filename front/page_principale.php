@@ -25,7 +25,7 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 	
 		<nav id="menu" >
 			<div id="classement">
-				<!--<div id="classer"  onClick="Afficher()"></div>-->
+				<div id="classer"  onClick="Afficher()"></div>
 			</div>
 			<div>
 				<form id="formRecherche" method="get" action="recherche_bar.php">
@@ -113,14 +113,14 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 	
  				 <div id="trier"><input type="submit"  value="Classer par :" /></div>
  	 				<div id="cocher">
- 	 				<label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
-    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
-    				<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
-    				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
+ 	 				<label><input type="radio" id="prix" name="tri" value="Prix">Prix</label>
+    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance">Ambiance</label>
+    				<label><input type="radio" id="note" name="tri" value="Note">Note</label>
+    				<label><input type="radio" id="distance" name="tri" value="Distance">Distance</label>
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
-				<a href="deconnexion.php" class="deconnexion">
+    			<a href="deconnexion.php" class="deconnexion">
                     <div id="divDeco"></div>
                 </a>
     	</form>
