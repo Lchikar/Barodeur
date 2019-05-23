@@ -14,7 +14,7 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
-    <title>Page principale</title>
+    <title>Rechercher ambiance</title>
 </head>
 
 <body>
@@ -35,25 +35,13 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 		
 		<div id="AllBars">
 			<?php
-				//affiche tri ou par defaut
-				
-				if(isset($_GET['type'])){
-					echo 'type '.$_GET['type'].'<br>';
-					$tri = $_GET['type'];
-				} else $tri = 'generale';
-
-				echo "tri -> ".$tri."<br>";
-
 				$stmt =  MyPDO::getInstance()->prepare(
 				"SELECT DISTINCT name, photo, 
 				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse
 				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN markType
-				WHERE markType.markType = '$tri' 
-				ORDER BY Mark.value DESC;");
-
+				WHERE markType.markType ='ambiance'
+				ORDER BY Mark.value DESC");
 				$stmt->execute();	
-				echo "test<br>";
-
 				while($general = $stmt->fetch()){
 					echo '<div id="affiche_bar" onClick="ChangePage()">';
 							$src = "image/bars/".$general['photo'];
@@ -66,25 +54,24 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 							 echo "<br>".$general['name']."<br>";
 							 echo "<br>".$general['adresse']."<br>";
 							 echo '</div>';
-
-							 $name_bar = $general['name'];
 							 
 							 echo '<div id="moy">';
 							 $stmt2 =  MyPDO::getInstance()->prepare(
 								"SELECT Mark.value as 'value'
 								FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-								WHERE Bar.name =\"$name_bar\" AND '$tri';");
+								WHERE Bar.name =:bar AND markType.markType = 'ambiance'");
+								$stmt2->bindValue(':bar', $general['name']); 
 								
-							$stmt2->execute();
-							$cpt = 0; $somme = 0;	
-							while($note = $stmt2->fetch()){
-								$cpt ++;
-								$somme += $note['value'];
-							}
-							if(0 == $cpt) $moy = 0;
-							else $moy = $somme/$cpt;
-							echo "<br>".$tri." : ".$moy."/5";
-							echo "</div>";
+								$stmt2->execute();
+								$cpt = 0; $somme = 0;	
+								while($note = $stmt2->fetch()){
+									$cpt ++;
+									$somme += $note['value'];
+								}
+								if(0 == $cpt) $moy = 0;
+								else $moy = $somme/$cpt;
+								echo "<br>Ambiance : ".$moy."/5";
+								echo "</div>";
 							echo "</div>";
 						}
 					?>
