@@ -4,7 +4,7 @@
 <head>
 <?php
 session_start();
-require_once 'MyPDO.db.include.php'; // connexion à la bdd
+require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
 if(!isset($_GET['bar'])){
 	echo "Erreur GET\n";
@@ -14,8 +14,8 @@ if(!isset($_GET['bar'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bienvenue à Bar à Gogo !">
     <meta name="keywords" content="bar etudiant">
-    <link rel="stylesheet" type="text/css" href="css/afficher.css">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../css/afficher.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
     <title>Afficher bar</title>
 </head>
@@ -51,7 +51,7 @@ if(!isset($_GET['bar'])){
 				<div id="picture"> 
 				<?php 
 				while($general = $stmt->fetch()){
-					$src = "image/bars/".$general['photo'];
+					$src = "../image/bars/".$general['photo'];
 					echo ('<img class="photo"
 				     src="'.$src.'"
 				     alt="'.$general['name'].'" height="240" width="280"/>');
@@ -233,7 +233,7 @@ if(!isset($_GET['bar'])){
 
 	
 
-    <script src="js/menu.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
 
 </html>

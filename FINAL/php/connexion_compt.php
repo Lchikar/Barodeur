@@ -1,7 +1,7 @@
 <?php 
 session_start(); // on ouvre une session pour utiliser les cookies
 session_unset (); // met à zero les cookies au cas où il y avait une autre session d'ouverte
-require_once 'MyPDO.db.include.php'; // connexion à la bdd
+require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 $stmt = MyPDO::getInstance()->prepare("SELECT pseudo, password FROM User"); 
 // recherche des tous les users
 
@@ -22,11 +22,11 @@ if (isset($_POST['pseudo']) && isset($_POST['mdp'])) { // vérification des vari
         header('location: page_principale.php'); // connexion reussie, redirection vers profil user
         exit();
     } else {
-        header('location: accueil.html?err=err1'); // echec connexion, redirection page de connexion
+        header('location: accueil.php?err=err1'); // echec connexion, redirection page de connexion
         exit();
     }
 } else {
-        header('location: accueil.html?err=err2'); // tous les champs n'ont pas été correctement remplis
+        header('location: accueil.php?err=err2'); // tous les champs n'ont pas été correctement remplis
         exit();
     }
 

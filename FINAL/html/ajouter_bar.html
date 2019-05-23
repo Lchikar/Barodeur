@@ -7,9 +7,9 @@
     <meta name="description" content="Bienvenue à Bar à Gogo !">
     <meta name="keywords" content="bar etudiant">
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
-    <link rel="stylesheet" type="text/css" href="css/ajout_bar.css">
-    <link rel="stylesheet" type="text/css" href="css/rating.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../css/ajout_bar.css">
+    <link rel="stylesheet" type="text/css" href="../css/rating.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
     <title>Ajouter un bar</title>
 </head>
@@ -24,7 +24,7 @@
                 <input type="text" name="rechercher" placeholder="Rechercher" />
             </form>
         </div>
-        <a href="deconnexion.php" class="deconnexion">
+        <a href="../php/deconnexion.php" class="deconnexion">
             <div class="divDeco"></div>
         </a>
     </nav>
@@ -45,7 +45,7 @@
             </div>
 
             <input type="submit" value="Ajouter bar" />
-            <a href="deconnexion.php" class="deconnexion">
+            <a href="../php/deconnexion.php" class="deconnexion">
                 <div id="divDeco"></div>
             </a>
         </form>
@@ -54,7 +54,7 @@
     
     <main>
         <h1>Ajouter un bar</h1>
-        <form id="form_ajout_bar" method="post" action="ajout_bar.php" enctype="multipart/form-data" >
+        <form id="form_ajout_bar" method="post" action="../php/ajout_bar.php" enctype="multipart/form-data" >
             <input type="text" name="nom_bar" id="input_nom_bar" placeholder="Nom du bar*" required />
             <div id="adresse_bar">
                 <h2>Adresse du bar :</h2>
@@ -92,54 +92,54 @@
             <div ><h3 class="h3">Ambiance :</h3></div>
 					<div class="rating_amb">
                         <input id="staramb5" name="ambi1" type="radio" value="5" class="radio-btn hide" />
-                        <label for="staramb5" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="staramb5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="staramb4" name="ambi2" type="radio" value="4" class="radio-btn hide" />
-                        <label for="staramb4" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="staramb4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="staramb3" name="ambi3" type="radio" value="3" class="radio-btn hide" />
-                        <label for="staramb3" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="staramb3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="staramb2" name="ambi4" type="radio" value="2" class="radio-btn hide" />
-                        <label for="staramb2" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="staramb2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="staramb1" name="ambi5" type="radio" value="1" class="radio-btn hide" />
-                        <label for="staramb1" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="staramb1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                     </div>
 				<div ><h3 class="h3">Prix :</h3></div>
 					<div class="rating_prix">
                         <input id="starprix5" name="prix1" type="radio" value="5" class="radio-btn hide" />
-                        <label for="starprix5" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="starprix5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="starprix4" name="prix2" type="radio" value="4" class="radio-btn hide" />
-                        <label for="starprix4" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="starprix4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="starprix3" name="prix3" type="radio" value="3" class="radio-btn hide" />
-                        <label for="starprix3" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="starprix3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="starprix2" name="prix4" type="radio" value="2" class="radio-btn hide" />
-                        <label for="starprix2" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="starprix2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="starprix1" name="prix5" type="radio" value="1" class="radio-btn hide" />
-                        <label for="starprix1" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="starprix1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                     </div>
 				<div ><h3 class="h3">Distance :</h3></div>
 					<div class="rating_dist">
                         <input id="stardist5" name="dist1" type="radio" value="5" class="radio-btn hide" />
-                        <label for="stardist5" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stardist5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="stardist4" name="dist2" type="radio" value="4" class="radio-btn hide" />
-                        <label for="stardist4" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stardist4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="stardist3" name="dist3" type="radio" value="3" class="radio-btn hide" />
-                        <label for="stardist3" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stardist3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="stardist2" name="dist4" type="radio" value="2" class="radio-btn hide" />
-                        <label for="stardist2" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stardist2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="stardist1" name="dist5" type="radio" value="1" class="radio-btn hide" />
-                        <label for="stardist1" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stardist1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                     </div>
 				<div ><h3 class="h3">Général :</h3></div>
 					<div class="rating_gen">
                         <input id="stargen5" name="gen1" type="radio" value="5" class="radio-btn hide" />
-                        <label for="stargen5" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stargen5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="stargen4" name="gen2" type="radio" value="4" class="radio-btn hide" />
-                        <label for="stargen4" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stargen4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="stargen3" name="gen3" type="radio" value="3" class="radio-btn hide" />
-                        <label for="stargen3" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stargen3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="stargen2" name="gen4" type="radio" value="2" class="radio-btn hide" />
-                        <label for="stargen2" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stargen2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                         <input id="stargen1" name="gen5" type="radio" value="1" class="radio-btn hide" />
-                        <label for="stargen1" ><img src="image/wine-glasses.png" height='35px' width='35px'></label>
+                        <label for="stargen1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                     </div>
                 </div>
                 <textarea name="commentaire_ajout" id="commentaire_ajout" cols="20" rows="5" placeholder="Ton commentaire sur ce bar"></textarea>
@@ -150,7 +150,7 @@
     <footer>
         <p id="champs_obligatoires">* : champs obligatoires</p>
     </footer>
-    <script src="js/menu.js"></script>
+    <script src="../js/menu.js"></script>
     <!--<script src="js/rating.js"></script>-->
 </body>
 

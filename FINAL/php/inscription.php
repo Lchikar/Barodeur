@@ -1,6 +1,6 @@
 <?php 
 session_start(); // permet d'accéder aux cookies, se trouve en début de chaque page qui en a besoin
-require_once 'MyPDO.db.include.php'; // connexion à la bdd
+require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 $stmt1 = MyPDO::getInstance()->prepare(<<<SQL
     SELECT pseudo, password FROM User
 SQL
@@ -15,7 +15,7 @@ $stmt1->execute();
 if (isset($_POST['pseudo']) && isset($_POST['mdp'])) { // vérification des variables du formulaire
     while(($ligne = $stmt1->fetch())){ // parcours de la requete (liste des pseudos et mdp de chaque user)
         if( $pseudo == $ligne['pseudo']){
-            header('location: accueil.html?err=errpseudo');// pseudo déjà utilisé
+            header('location: accueil.php?err=errpseudo');// pseudo déjà utilisé
             exit();
         }
     }
@@ -29,11 +29,11 @@ SQL
     $_SESSION['pseudo'] = $_POST['pseudo'];
     $_SESSION['mdp'] = $_POST['mdp'];
             
-    header ("location:page_principale.php"); // redirection vers la page page_principale.html? new=pseudo
+    header ("location: page_principale.php"); // redirection vers la page page_principale.php? new=pseudo
     exit();
     
 } else {
-    header('location: accueil.html?err=errManqueInfos');// tous les champs n'ont pas été correctement remplis
+    header('location: accueil.php?err=errManqueInfos');// tous les champs n'ont pas été correctement remplis
     exit();
 }
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'MyPDO.db.include.php'; // connexion à la bdd
+require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 $stmt1 = MyPDO::getInstance()->prepare(<<<SQL
     SELECT name FROM Bar
 SQL
@@ -10,14 +10,14 @@ $stmt1->execute();
 if(isset($_POST['nom_bar']) && !empty($_POST['nom_bar'])){
     while(($ligne = $stmt1->fetch())){ // parcours de la requete (liste des pseudos et mdp de chaque user)
         if( $_POST['nom_bar'] == $ligne['name']){
-            header('location: ajouter_bar.html?err=errBarExisteDeja');// ce bar est déjà enregistré
+            header('location: ../html/ajouter_bar.html?err=errBarExisteDeja');// ce bar est déjà enregistré
             exit();
         }
     }
     $nom_bar = $_POST['nom_bar'];
     echo $nom_bar."</br>";
 } else {
-    header('location: ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
+    header('location: ./html/ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
     exit();
 }
 
@@ -25,7 +25,7 @@ if(isset($_POST['numero_rue']) && !empty($_POST['numero_rue'])){
     $numero_rue = $_POST['numero_rue'];
     echo $numero_rue."</br>";
 } else {
-    header('location: ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
+    header('location: ./html/ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
     exit();
 }
 
@@ -33,7 +33,7 @@ if(isset($_POST['adresse']) && !empty($_POST['adresse'])){
     $adresse = $_POST['adresse'];
     echo $adresse." ";
 } else {
-    header('location: ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
+    header('location: ./html/ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
     exit();
 }
 
@@ -42,7 +42,7 @@ if(isset($_POST['ville']) && !empty($_POST['ville'])){
     $ville = $_POST['ville'];
     echo $ville."</br>";
 } else {
-    header('location: ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
+    header('location: ./html/ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
     exit();
 }
 
@@ -51,7 +51,7 @@ if(isset($_POST['code_postal']) && !empty($_POST['code_postal'])){
     $code_postal = $_POST['code_postal'];
     echo $code_postal."</br>";
 } else {
-    header('location: ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
+    header('location: ./html/ajouter_bar.html?err=errOubli');// vous n'avez pas rempli tous les champs obligatoires
     exit();
 }
 
@@ -72,7 +72,7 @@ if(isset($_POST['site_web']) && !empty($_POST['site_web'])){
 
 if(isset($_FILES['ajout_photo'])){
     $ajout_photo = basename($_FILES["ajout_photo"]["name"]);
-    $target_dir = "C:\\wamp64\\www\\WebS2\\Projet\\front\\image\\bars\\";
+    $target_dir = "C:\\Users\\Loulou\\OndeDrive\\IMAC1\\Git\\Projet_Web_S2\\FINAL\\image\\bars\\"; // CHEMIN ABSOLU DU DOSSIER 'bars'
     $target_file = $target_dir.basename($_FILES["ajout_photo"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
