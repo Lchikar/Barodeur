@@ -23,8 +23,8 @@
 					<input type="text" name="rechercher"  placeholder="Rechercher" />
 				</form>
 			</div>
-			<div>
-				<input type="submit" id="deconnection" value="" />
+			<div id="divDeco">
+				<a href="deconnexion.php" class="deconnexion"></a>
 			</div>
 		</nav>
 		
@@ -54,7 +54,7 @@
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
-    			<input type="submit"  value="Se déconnecter" />
+				<a href="deconnexion.php" class="deconnexion">Se déconnecter</a>
     	</form>
     </div>
 
