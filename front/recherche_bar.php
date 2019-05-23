@@ -14,7 +14,7 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
-    <title>Page principale</title>
+    <title>Rechercher bar</title>
 </head>
 
 <body>
@@ -24,36 +24,24 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 				<div id="classer"  onClick="Afficher()"></div>
 			</div>
 			<div>
-				<form id="formRecherche" method="get" action="recherche_bar.php">
+				<form id="formRecherche" method="get" action="">
 					<input type="text" name="rechercher" id="rechercher" placeholder="Rechercher" />
 				</form>
 			</div>
-			<div id="divDeco">
-				<a href="deconnexion.php" class="deconnexion"></a>
+			<div>
+				<input type="submit" id="deconnection" value="" />
 			</div>
 		</nav>
 		
 		<div id="AllBars">
 			<?php
-				//affiche tri ou par defaut
-				
-				if(isset($_GET['type'])){
-					echo 'type '.$_GET['type'].'<br>';
-					$tri = $_GET['type'];
-				} else $tri = 'generale';
-
-				echo "tri -> ".$tri."<br>";
-
 				$stmt =  MyPDO::getInstance()->prepare(
-				"SELECT DISTINCT name, photo, 
-				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse
-				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN markType
-				WHERE markType.markType = '$tri' 
-				ORDER BY Mark.value DESC;");
-
+				"SELECT name, photo, 
+				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse, bartype.barType as type
+				FROM Bar NATURAL JOIN City NATURAL JOIN BarBelongsType NATURAL JOIN bartype
+				WHERE Bar.name = :recherche OR cityName= :recherche OR postalCode= :recherche OR barType= :recherche");
+				$stmt->bindValue(':recherche', $_GET['rechercher']);
 				$stmt->execute();	
-				echo "test<br>";
-
 				while($general = $stmt->fetch()){
 					echo '<div id="affiche_bar" onClick="ChangePage()">';
 							$src = "image/bars/".$general['photo'];
@@ -65,26 +53,26 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
 							 echo('<br><div id="infos">');
 							 echo "<br>".$general['name']."<br>";
 							 echo "<br>".$general['adresse']."<br>";
+							 echo "<br>Bar à ".$general['type']."<br>";
 							 echo '</div>';
-
-							 $name_bar = $general['name'];
 							 
 							 echo '<div id="moy">';
 							 $stmt2 =  MyPDO::getInstance()->prepare(
 								"SELECT Mark.value as 'value'
 								FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-								WHERE Bar.name =\"$name_bar\" AND '$tri';");
+								WHERE Bar.name =:bar AND markType.markType = 'generale'");
+								$stmt2->bindValue(':bar', $general['name']); 
 								
-							$stmt2->execute();
-							$cpt = 0; $somme = 0;	
-							while($note = $stmt2->fetch()){
-								$cpt ++;
-								$somme += $note['value'];
-							}
-							if(0 == $cpt) $moy = 0;
-							else $moy = $somme/$cpt;
-							echo "<br>".$tri." : ".$moy."/5";
-							echo "</div>";
+								$stmt2->execute();
+								$cpt = 0; $somme = 0;	
+								while($note = $stmt2->fetch()){
+									$cpt ++;
+									$somme += $note['value'];
+								}
+								if(0 == $cpt) $moy = 0;
+								else $moy = $somme/$cpt;
+								echo "<br>Note générale: ".$moy."/5";
+								echo "</div>";
 							echo "</div>";
 						}
 					?>
@@ -109,7 +97,7 @@ require_once 'MyPDO.db.include.php'; // connexion à la bdd
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
-				<a href="deconnexion.php" class="deconnexion">Se déconnecter</a>
+    			<input type="submit"  value="Se déconnecter" />
     	</form>
     </div>
 

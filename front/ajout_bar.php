@@ -69,29 +69,7 @@ if(isset($_POST['site_web']) && !empty($_POST['site_web'])){
     $site_web = "";
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> master
-/*if(isset($_FILES['ajout_photo'])){
-    echo "la boucle";
-    //test validite fichier
-    if ($_FILES['ajout_photo']['error'] != UPLOAD_ERR_OK) echo "Erreur lors du transfert";
 
-    else{
-        //deplacement dans dossier img
-        $ajout_photo = $_FILES['ajout_photo']['name'];
-        echo "ajout photo : ".$ajout_photo."<br>";  
-        $uploaddir = "img/bars/";
-        $uploadfile =  $uploaddir.basename($ajout_photo);
-        $resultat = move_uploaded_file($ajout_photo,$uploaddir);
-        if ($resultat) echo "Transfert réussi";
-        else echo "Erreur move_uploaded_file<br>";
-    }
-    echo "ajout photo";
-}*/
-
-//********************
 if(isset($_FILES['ajout_photo'])){
     $ajout_photo = basename($_FILES["ajout_photo"]["name"]);
     $target_dir = "C:\\wamp64\\www\\WebS2\\Projet\\front\\image\\bars\\";
@@ -135,31 +113,8 @@ if ($uploadOk == 0) {
     }
 }
 
-//********************
 
 
-<<<<<<< HEAD
-=======
-=======
-if(isset($_POST['ajout_photo']) && !empty($_POST['ajout_photo'])){
-    $ajout_photo = $_POST['ajout_photo'];
-    
-    /*if(isset($_FILES['ajout_photo'])){
-        echo "la boucle";
-        //test validite fichier
-        if ($_FILES['ajout_photo']['error'] > 0) echo "Erreur lors du transfert";
-
-        //deplacement dans dossier img
-        $nom = "img/$ajout_photo";
-        $resultat = move_uploaded_file($_FILES['ajout_photo']['tmp_name'],$nom);
-        if ($resultat) echo "Transfert réussi";
-    }*/
-    
-    echo $ajout_photo."</br>";
-}
-
->>>>>>> master
->>>>>>> master
 if(isset($_POST['type_bar']) && !empty($_POST['type_bar'])){
     $type_bar = $_POST['type_bar'];
     echo $type_bar."</br>";
@@ -211,10 +166,6 @@ $stmt4->bindValue(':type', $type_bar);
 $stmt4->execute();
 $stmt4->closeCursor();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> master
 if(isset($_POST['commentaire_ajout']) && !empty($_POST['commentaire_ajout'])){
     $stmt5 = MyPDO::getInstance()->prepare(
             "INSERT INTO Comment (id_user, id_bar, text) VALUES (
@@ -230,24 +181,6 @@ if(isset($_POST['commentaire_ajout']) && !empty($_POST['commentaire_ajout'])){
 
     echo "GENERAL ca a marché ! "."</br>";
 }
-<<<<<<< HEAD
-=======
-=======
-$stmt5 = MyPDO::getInstance()->prepare(
-        "INSERT INTO Comment (id_user, id_bar, text) VALUES (
-            (SELECT User.id_user FROM User WHERE User.pseudo = :pseudo),
-            (SELECT Bar.id_bar FROM Bar WHERE Bar.name = :bar),
-            :comm);");
-
-$stmt5->bindValue(':bar', $nom_bar);
-$stmt5->bindValue(':pseudo', $_SESSION['pseudo']);
-$stmt5->bindValue(':comm', $commentaire_ajout);
-$stmt5->execute();
-$stmt5->closeCursor();
-
-echo "GENERAL ca a marché ! "."</br>";
->>>>>>> master
->>>>>>> master
 
 
 if(isset($_POST['prix1'])) $markprice = $_POST['prix1'];
@@ -301,10 +234,6 @@ foreach ($marktypes as $marktype => $markvalue) {
 
 echo "insertion note ok"."</br>";
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> master
 $update_photo = "UPDATE Bar SET Bar.photo=? WHERE Bar.name=?";
 $stmt6 = MyPDO::getInstance()->prepare($update_photo);
 $stmt6->execute([$ajout_photo, $nom_bar]);
@@ -315,19 +244,6 @@ $pagebar = 'afficher_bar.php?bar='.$nom_bar;
 header('location: '.$pagebar);
 exit();
 
-<<<<<<< HEAD
-=======
-=======
-/*$stmt3 = MyPDO::getInstance()->prepare(<<<SQL
-    INSERT INTO Bar(photo)
-    VALUES ('$nom')
-SQL
-);
-    
-$stmt3->execute();
-echo "insertion photo ok"."</br>";   */ 
->>>>>>> master
->>>>>>> master
     
 
 ?>
