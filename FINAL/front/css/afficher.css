@@ -1,0 +1,203 @@
+@media only screen and (max-width: 830px) {
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        min-width: 100vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-family: 'El Messiri', sans-serif;
+    }
+
+    #menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: #85000c;
+        height: 15vh;
+        min-width: 100vw;
+    }
+
+    #menu div {
+        margin: auto;
+    }
+
+    #affiche_bar {
+        margin: 0;
+        min-height: 100vh;
+        min-width: 100vw; 
+    }
+
+    #bottom{
+        min-width: 100vw;
+        min-height: 50vh;
+    }
+
+    #top{
+        position:relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-width: 100vw;
+        height: 40vh;
+
+    }
+
+    #picture{
+        /*background-image: url(../image/bars/Falstaff.jpg);
+        background-size: 100% 100%;*/
+    }
+
+    #top div{
+        width:50vw;
+    }
+
+    #comm{
+        min-width: 100vw;
+    }
+
+    #Retour{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #retourA{
+        border-color: #65010c;
+        color: white;
+        height: 50px;
+        width: 200px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 8px;
+        background-color: #65010c;
+        letter-spacing: 1.5px;
+        font-size: 20px; 
+    }
+   
+    #notes{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto; 
+        align-items:center;
+        text-align: center;
+        }
+    
+    .h3{
+        margin:0px;
+    }
+    button[type="button"]{
+        border-color: #65010c;
+        color: white;
+        height: 10px;
+        width: 15px;
+        padding: 10px;
+        margin: 2px;
+        border-radius: 8px;
+        background-color: #65010c;
+        font-size: 10px; 
+    }
+
+    #deconnexion {
+        background-image: url(../image/deco.png);
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 50px;
+        background-size: contain;
+        border: none;
+        background-color: #85000c;
+    }
+
+    #classer {
+        height: 50px;
+        width: 50px;
+        background-size: contain;
+        background-position: center;
+        padding-top: 0;
+        background-image: url(../image/classer.png);
+        background-repeat: no-repeat;
+    }
+
+    input[type="text"] {
+        background-color: #efd8dd;
+        border-radius: 20px;
+        border-width: 0;
+        height: 5vh;
+        width: 45vw;
+        font-size: 20px;
+        font-family: 'El Messiri', sans-serif;
+        font-weight: normal;
+        text-align: center;
+        margin: 0;
+    }
+
+    #croix {
+        margin: 15px;
+        height: 50px;
+        width: 50px;
+        background-image: url(../image/croix.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    #mainForm {
+        height: 80vh;
+        width: 55vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: auto;
+        justify-content: center;
+        vertical-align: middle;
+        align-items: center;
+    }
+
+    #cocher {
+        display: grid;
+        height: 20vh;
+        color: white;
+        letter-spacing: 1px;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    #trier {
+        margin-bottom: 10px;
+        margin-top: 45px;
+    }
+
+    input[type="radio"i] {
+        margin: 15px;
+        border-radius: 10px;
+        transform: scale(1.4);
+    }
+
+    #mainForm input {
+        background-color: #efd8dd;
+        border-width: 0;
+    }
+
+    input[type="submit"i] {
+        border-radius: 20px;
+        margin: auto;
+        width: 55vw;
+        height: 6vh;
+        font-size: 25px;
+        font-family: 'El Messiri', sans-serif;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    #hidden {
+        min-width: 100vw;
+        min-height: 100vh;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: #85000c;
+        font-family: 'El Messiri', sans-serif;
+    }
+}

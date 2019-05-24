@@ -15,5 +15,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const form = document.getElementById('formConnexion');
         form.action = "../php/inscription.php";
     }
-
+    
 });
+
+function redir_Prix(){
+    console.log("Trier par prix");
+    document.location.href= "page_principale.php?type=prix";
+}
+
+function redir_Ambiance(){
+    console.log("Trier par ambiance");
+    document.location.href= "page_principale.php?type=ambiance";
+}
+    
+function redir_Note(){
+    console.log("Trier par note");
+    document.location.href= "page_principale.php?type=generale";
+}
+    
+function redir_Distance(){
+    console.log("Trier par distance");
+    document.location.href= "page_principale.php?type=distance";
+}
+    

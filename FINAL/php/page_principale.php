@@ -12,12 +12,12 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="../css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
-    <style type="text/css">
-	   a {
-	   	color:inherit;
-	      text-decoration:none;
-	   }
-	</style>
+    <style>
+    a {
+        color:inherit;
+        text-decoration:none;
+    }
+    </style>
     <title>Page principale</title>
 </head>
 
@@ -113,10 +113,10 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 	
  				 <div id="trier"><input type="submit"  value="Classer par :" /></div>
  	 				<div id="cocher">
- 	 				<label><input type="radio" id="prix" name="tri" value="Prix">Prix</label>
-    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance">Ambiance</label>
-    				<label><input type="radio" id="note" name="tri" value="Note">Note</label>
-    				<label><input type="radio" id="distance" name="tri" value="Distance">Distance</label>
+ 	 				<label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
+    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
+    				<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
+    				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
     				</div>
     
     			<input type="submit"  value="Ajouter bar" />
@@ -129,6 +129,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 	
 
     <script src="../js/menu.js"></script>
+    <script src="../js/redirection.js"></script>
 </body>
 
 </html>

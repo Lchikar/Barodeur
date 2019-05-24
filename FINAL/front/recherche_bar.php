@@ -4,7 +4,7 @@
 <head>
 <?php
 session_start();
-require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
+require_once 'MyPDO.db.include.php'; // connexion à la bdd
 
 
 ?>
@@ -12,15 +12,8 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bienvenue à Bar à Gogo !">
     <meta name="keywords" content="bar etudiant">
-    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
-
-    <style>
-    a {
-        color:inherit;
-        text-decoration:none;
-    }
-    </style>
     <title>Rechercher bar</title>
 </head>
 
@@ -50,9 +43,8 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				$stmt->bindValue(':recherche', $_GET['rechercher']);
 				$stmt->execute();	
 				while($general = $stmt->fetch()){
-					echo '<div id="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
 					echo '<div id="affiche_bar" onClick="ChangePage()">';
-							$src = "../image/bars/".$general['photo'];
+							$src = "image/bars/".$general['photo'];
 							echo ('<div id="picture"> <img class="photo"
 							 src="'.$src.'"
 							 alt='.$general['name'].'/>');
@@ -82,8 +74,6 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 								echo "<br>Note générale: ".$moy."/5";
 								echo "</div>";
 							echo "</div>";
-							echo '</a></div>';
-							echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
 						}
 					?>
 				</div>
@@ -113,8 +103,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
 	
 
-    <script src="../js/menu.js"></script>
-    <script src="../js/redirection.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 
 </html>
