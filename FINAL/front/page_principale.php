@@ -4,20 +4,20 @@
 <head>
 <?php
 session_start();
-require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
+require_once 'MyPDO.db.include.php'; // connexion à la bdd
 ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bienvenue à Bar à Gogo !">
     <meta name="keywords" content="bar etudiant">
-    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
-    <style>
-    a {
-        color:inherit;
-        text-decoration:none;
-    }
-    </style>
+    <style type="text/css">
+	   a {
+	   	color:inherit;
+	      text-decoration:none;
+	   }
+	</style>
     <title>Page principale</title>
 </head>
 
@@ -42,7 +42,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				//affiche tri ou par defaut
 				if(isset($_GET['type'])){
 					$markType = $_GET['type'];
-					$cond = "WHERE MarkType.markType = '$markType'";
+					$cond = "WHERE markType.markType = '$markType'";
 					$order="ORDER BY Mark.value DESC";
 				} 
 				else {
@@ -54,7 +54,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				$stmt =  MyPDO::getInstance()->prepare(
 				"SELECT DISTINCT name, photo, 
 				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse
-				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN MarkType
+				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN markType
 				$cond
 				$order;");
 
@@ -63,7 +63,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				while($general = $stmt->fetch()){
 					echo '<div id="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
 					echo '<div id="affiche_bar" >';
-							$src = "../image/bars/".$general['photo'];
+							$src = "image/bars/".$general['photo'];
 							echo ('<div id="picture"> <img class="photo"
 							 src="'.$src.'"
 							 alt='.$general['name'].'/>');
@@ -77,11 +77,11 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							 $name_bar = $general['name'];
 							 
 							 if($cond != "")
-							 	$cond = "AND MarkType.markType = '$markType'"; 
+							 	$cond = "AND markType.markType = '$markType'"; 
 							 echo '<div id="moy">';
 							 $stmt2 =  MyPDO::getInstance()->prepare(
 								"SELECT Mark.value as 'value'
-								FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
+								FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
 								WHERE Bar.name =\"$name_bar\" $cond;");
 								
 							$stmt2->execute();
@@ -96,10 +96,12 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							echo "</div>";
 							echo "</div>";
 							echo '</a></div>';
-							echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+							echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
 						}
 					?>
 				</div>
+			</div>
+		</div>
 		
 		<!--deuxieme interface quand on clique sur le bouton-->
 		
@@ -111,13 +113,13 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 	
  				 <div id="trier"><input type="submit"  value="Classer par :" /></div>
  	 				<div id="cocher">
- 	 				<label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
-    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
-    				<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
-    				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
+ 	 				<label><input type="radio" id="prix" name="tri" value="Prix">Prix</label>
+    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance">Ambiance</label>
+    				<label><input type="radio" id="note" name="tri" value="Note">Note</label>
+    				<label><input type="radio" id="distance" name="tri" value="Distance">Distance</label>
     				</div>
     
-    			<input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>
+    			<input type="submit"  value="Ajouter bar" />
     			<a href="deconnexion.php" class="deconnexion">
                     <div id="divDeco"></div>
                 </a>
@@ -126,8 +128,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
 	
 
-    <script src="../js/menu.js"></script>
-    <script src="../js/redirection.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 
 </html>

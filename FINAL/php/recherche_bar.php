@@ -14,6 +14,13 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="../css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
+
+    <style>
+    a {
+        color:inherit;
+        text-decoration:none;
+    }
+    </style>
     <title>Rechercher bar</title>
 </head>
 
@@ -43,8 +50,9 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				$stmt->bindValue(':recherche', $_GET['rechercher']);
 				$stmt->execute();	
 				while($general = $stmt->fetch()){
+					echo '<div id="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
 					echo '<div id="affiche_bar" onClick="ChangePage()">';
-							$src = "image/bars/".$general['photo'];
+							$src = "../image/bars/".$general['photo'];
 							echo ('<div id="picture"> <img class="photo"
 							 src="'.$src.'"
 							 alt='.$general['name'].'/>');
@@ -74,6 +82,8 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 								echo "<br>Note générale: ".$moy."/5";
 								echo "</div>";
 							echo "</div>";
+							echo '</a></div>';
+							echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
 						}
 					?>
 				</div>
@@ -94,7 +104,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
     				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
     				</div>
     
-    			<input type="submit"  value="Ajouter bar" />
+    			<input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>
     			<a href="deconnexion.php" class="deconnexion">
                     <div id="divDeco"></div>
                 </a>
@@ -104,6 +114,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 	
 
     <script src="../js/menu.js"></script>
+    <script src="../js/redirection.js"></script>
 </body>
 
 </html>
