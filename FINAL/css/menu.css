@@ -166,6 +166,17 @@
         font-weight: normal; 
         text-align: center; 
     } 
+
+    input[type="button"] { 
+        border-radius: 20px; 
+        margin: auto; 
+        width: 55vw; 
+        height: 6vh; 
+        font-size: 25px; 
+        font-family: 'El Messiri', sans-serif; 
+        font-weight: normal; 
+        text-align: center; 
+    } 
     #hidden { 
         min-width: 100vw; 
         min-height: 100vh; 

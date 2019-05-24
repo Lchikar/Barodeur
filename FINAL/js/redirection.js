@@ -38,3 +38,6 @@ function redir_Distance(){
     document.location.href= "page_principale.php?type=distance";
 }
     
+function redir_Ajout(){
+    document.location.href= "../html/ajouter_bar.html";
+}

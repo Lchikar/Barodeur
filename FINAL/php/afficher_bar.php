@@ -27,7 +27,7 @@ if(!isset($_GET['bar'])){
 				<div id="classer"  onClick="Afficher()"></div>
 			</div>
 			<div>
-				<form>
+				<form id="formRecherche" method="get" action="recherche_bar.php">
 					<input type="text" name="rechercher"  placeholder="Rechercher" />
 				</form>
 			</div>
@@ -197,7 +197,7 @@ if(!isset($_GET['bar'])){
 					?>	
 					<?php 
 						echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo'].", laisse ton commentaire'/>");
-						echo("<input type='hidden' name='bar' id='bar' value='".$_GET['bar']."'/>");
+						echo('<input type="hidden" name="bar" id="bar" value="'.$_GET['bar'].'"/>');
 					?>
 						<input type="submit" id="publieA"value="Publie ton comm'"/>
 					</form>
@@ -228,19 +228,17 @@ if(!isset($_GET['bar'])){
 		
 		<div id="hidden" style="display: none;" >
 			<div id="croix" onClick="Cacher()">
-
 			</div>
 			<form id="mainForm" method="post">
-	
  				 <div id="trier"><input type="submit"  value="Classer par :" /></div>
  	 				<div id="cocher">
- 	 				<label><input type="radio" id="prix" name="tri" value="Prix">Prix</label>
-    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance">Ambiance</label>
-    				<label><input type="radio" id="note" name="tri" value="Note">Note</label>
-    				<label><input type="radio" id="distance" name="tri" value="Distance">Distance</label>
-    				</div>
+ 	 				<label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
+    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
+    				<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
+    				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
+    			</div>
     
-    			<input type="submit"  value="Ajouter bar" />
+    			<input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>
     			<a href="deconnexion.php" class="deconnexion">
                     <div id="divDeco"></div>
                 </a>
@@ -250,6 +248,7 @@ if(!isset($_GET['bar'])){
 	
 
     <script src="../js/menu.js"></script>
+    <script src="../js/redirection.js"></script>
 </body>
 
 </html>
