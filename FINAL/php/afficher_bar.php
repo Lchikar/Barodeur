@@ -16,6 +16,7 @@ if(!isset($_GET['bar'])){
     <meta name="keywords" content="bar etudiant">
     <link rel="stylesheet" type="text/css" href="../css/afficher.css">
     <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../css/rating.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
     <title>Afficher bar</title>
 </head>
@@ -79,48 +80,62 @@ if(!isset($_GET['bar'])){
 				?>
 				</div>
 			</div>
+			<div></div><div></div><div></div><div></div>
+			<div></div><div></div><div></div><div></div>
 			<div id="bottom">
 				
 				<form id="notes" method="post" action="">
-				<div><h2>Notes :</h2></div>
+				<p class="wrapper">
+				<div class="notes"><h2>Notes :</h2></div>
 				<div> </div>
-				<div><h2>Moyenne :</h2></div>
-				<div ><h3 class="h3">Ambiance :</h3></div>
-					<div >
-					<button class="ambiance1" type="button"> 1</button>
-					<button class="ambiance1" type="button"> 2</button>
-					<button class="ambiance1" type="button"> 3</button>
-					<button class="ambiance1" type="button"> 4</button>
-					<button class="ambiance1" type="button"> 5</button>
+				<div class="moyenne"><h2>Moyenne :</h2></div>
+					<div class="un"><h3 class="h3">Ambiance :</h3></div>
+						<div class="rating_amb deux">
+	                        <input id="staramb5" name="ambi1" type="radio" value="5" class="radio-btn hide" />
+	                        <label for="staramb5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                        <input id="staramb4" name="ambi2" type="radio" value="4" class="radio-btn hide" />
+	                        <label for="staramb4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                        <input id="staramb3" name="ambi3" type="radio" value="3" class="radio-btn hide" />
+	                        <label for="staramb3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                        <input id="staramb2" name="ambi4" type="radio" value="2" class="radio-btn hide" />
+	                        <label for="staramb2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                        <input id="staramb1" name="ambi5" type="radio" value="1" class="radio-btn hide" />
+	                        <label for="staramb1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                    </div>
+					<div class="trois">
+						<?php
+							$stmt =  MyPDO::getInstance()->prepare(
+							"SELECT Mark.value as 'value'
+							FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+							WHERE Bar.name = :bar AND markType.markType = 'ambiance';");
+							$stmt->bindValue(':bar', $_GET['bar']);
+							
+							$stmt->execute();
+							$cpt = 0; $somme = 0;	
+							while($note = $stmt->fetch()){
+								$cpt ++;
+								$somme += $note['value'];
+							}
+							if(0 == $cpt) $moy = 0;
+							else $moy = $somme/$cpt;
+							echo $moy."/5";
+						?>
 					</div>
-				<div>
-					<?php
-						$stmt =  MyPDO::getInstance()->prepare(
-						"SELECT Mark.value as 'value'
-						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-						WHERE Bar.name = :bar AND markType.markType = 'ambiance';");
-						$stmt->bindValue(':bar', $_GET['bar']);
-						
-						$stmt->execute();
-						$cpt = 0; $somme = 0;	
-						while($note = $stmt->fetch()){
-							$cpt ++;
-							$somme += $note['value'];
-						}
-						if(0 == $cpt) $moy = 0;
-						else $moy = $somme/$cpt;
-						echo $moy."/5";
-					?>
-				</div>
-				<div ><h3>Prix :</h3></div>
-					<div >
-					<button class="Prix1" type="button"> 1</button>
-					<button class="Prix1" type="button"> 2</button>
-					<button class="Prix1" type="button"> 3</button>
-					<button class="Prix1" type="button"> 4</button>
-					<button class="Prix1" type="button"> 5</button>
-					</div>
-					<div>
+				
+					<div class="quatre"><h3>Prix :</h3></div>
+					<div class="rating_prix cinq">
+                        <input id="starprix5" name="prix1" type="radio" value="5" class="radio-btn hide" />
+                        <label for="starprix5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="starprix4" name="prix2" type="radio" value="4" class="radio-btn hide" />
+                        <label for="starprix4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="starprix3" name="prix3" type="radio" value="3" class="radio-btn hide" />
+                        <label for="starprix3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="starprix2" name="prix4" type="radio" value="2" class="radio-btn hide" />
+                        <label for="starprix2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="starprix1" name="prix5" type="radio" value="1" class="radio-btn hide" />
+                        <label for="starprix1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    </div>
+					<div class ="six">
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
@@ -138,15 +153,22 @@ if(!isset($_GET['bar'])){
 						else $moy = $somme/$cpt;
 						echo $moy."/5";
 					?></div>
-				<div ><h3 class="h3">Distance :</h3></div>
-					<div >
-					<button class="Distance1" type="button"> 1</button>
-					<button class="Distance1" type="button"> 2</button>
-					<button class="Distance1" type="button"> 3</button>
-					<button class="Distance1" type="button"> 4</button>
-					<button class="Distance1" type="button"> 5</button>
-					</div>
-					<div>
+				
+
+					<div class="sept"><h3 class="h3">Distance :</h3></div>
+					<div class="rating_dist huit">
+                        <input id="stardist5" name="dist1" type="radio" value="5" class="radio-btn hide" />
+                        <label for="stardist5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="stardist4" name="dist2" type="radio" value="4" class="radio-btn hide" />
+                        <label for="stardist4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="stardist3" name="dist3" type="radio" value="3" class="radio-btn hide" />
+                        <label for="stardist3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="stardist2" name="dist4" type="radio" value="2" class="radio-btn hide" />
+                        <label for="stardist2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="stardist1" name="dist5" type="radio" value="1" class="radio-btn hide" />
+                        <label for="stardist1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    </div>
+					<div class="neuf">
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
@@ -164,15 +186,21 @@ if(!isset($_GET['bar'])){
 						else $moy = $somme/$cpt;
 						echo $moy."/5";
 					?></div>
-				<div ><h3 class="h3">Général :</h3></div>
-					<div >
-					<button class="Général1" type="button"> 1</button>
-					<button class="Général1" type="button"> 2</button>
-					<button class="Général1" type="button"> 3</button>
-					<button class="Général1" type="button"> 4</button>
-					<button class="Général1" type="button"> 5</button>
-					</div>
-					<div>
+
+					<div class="dix"><h3 class="h3">Général :</h3></div>
+					<div class="rating_gen onze">
+                        <input id="stargen5" name="gen1" type="radio" value="5" class="radio-btn hide" />
+                        <label for="stargen5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="stargen4" name="gen2" type="radio" value="4" class="radio-btn hide" />
+                        <label for="stargen4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="stargen3" name="gen3" type="radio" value="3" class="radio-btn hide" />
+                        <label for="stargen3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="stargen2" name="gen4" type="radio" value="2" class="radio-btn hide" />
+                        <label for="stargen2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                        <input id="stargen1" name="gen5" type="radio" value="1" class="radio-btn hide" />
+                        <label for="stargen1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    </div>
+					<div class="douze">
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
@@ -191,6 +219,7 @@ if(!isset($_GET['bar'])){
 						echo $moy."/5";
 					?></div>
 					</form>
+				</p>
 				<h2>Commentaires :</h2>
 					<?php
 					echo '<form id="Publie" method="GET" action="ajouter_comm.php">';

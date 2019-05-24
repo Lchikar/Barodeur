@@ -26,6 +26,7 @@
 	#moy{
 		height: 5vh;
 		} 
+
 	#affiche_bar{
 		 width: 80vw;
 		  background-color: #efd8dd; 
@@ -44,8 +45,8 @@
        }
        
      #affiche_bar div{ 
-        width:45vw;
-        height: 30vh; 
+        width: 30vw;
+        height: 10vh; 
     }
        
       #picture{ 
