@@ -6,8 +6,9 @@
 session_start();
 require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
-if(!isset($_GET['bar'])){
-	echo "Erreur GET\n";
+if(!isset($_GET['bar']) || empty($_GET['bar'])){
+	header('location: page_principale.php');// ce bar est déjà enregistré
+    exit();
 }
 ?>
     <meta charset="utf-8">
@@ -27,7 +28,7 @@ if(!isset($_GET['bar'])){
 				<div id="classer"  onClick="Afficher()"></div>
 			</div>
 			<div>
-				<form id="formRecherche" method="get" action="recherche_bar.php">
+				<form>
 					<input type="text" name="rechercher"  placeholder="Rechercher" />
 				</form>
 			</div>
@@ -190,17 +191,12 @@ if(!isset($_GET['bar'])){
 						else $moy = $somme/$cpt;
 						echo $moy."/5";
 					?></div>
-					</form>
+					
+				</form>
 				<h2>Commentaires :</h2>
-					<?php
-					echo '<form id="Publie" method="GET" action="ajouter_comm.php">';
-					?>	
 					<?php 
 						echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo'].", laisse ton commentaire'/>");
-						echo('<input type="hidden" name="bar" id="bar" value="'.$_GET['bar'].'"/>');
 					?>
-						<input type="submit" id="publieA"value="Publie ton comm'"/>
-					</form>
 				<div class="commentaires">
 					<?php
 						$stmt =  MyPDO::getInstance()->prepare(
@@ -212,13 +208,16 @@ if(!isset($_GET['bar'])){
 						$stmt->execute();
 
 						while($comm = $stmt->fetch()){
-							echo $comm['pseudo']." dit :\"".$comm['text']."\"<br><br><br>";
+							echo $comm['pseudo']." dit :\"".$comm['text']."\"";
 						}
 					?>
 				</div>
 				<div id="boutons">
+				<form id="Publie" method="post" action="">
+				<input type="submit" id="publieA"value="Publie ton comm'"/>
+				</form>
 				<form id="Retour" method="post" action="page_principale.php">
-					<input type="submit" id="retourA"value="Retour"/>
+				<input type="submit" id="retourA"value="Retour"/>
 				</form>
 				</div>
 			</div>
@@ -228,17 +227,19 @@ if(!isset($_GET['bar'])){
 		
 		<div id="hidden" style="display: none;" >
 			<div id="croix" onClick="Cacher()">
+
 			</div>
 			<form id="mainForm" method="post">
+	
  				 <div id="trier"><input type="submit"  value="Classer par :" /></div>
  	 				<div id="cocher">
- 	 				<label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
-    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
-    				<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
-    				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
-    			</div>
+ 	 				<label><input type="radio" id="prix" name="tri" value="Prix">Prix</label>
+    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance">Ambiance</label>
+    				<label><input type="radio" id="note" name="tri" value="Note">Note</label>
+    				<label><input type="radio" id="distance" name="tri" value="Distance">Distance</label>
+    				</div>
     
-    			<input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>
+    			<input type="submit"  value="Ajouter bar" />
     			<a href="deconnexion.php" class="deconnexion">
                     <div id="divDeco"></div>
                 </a>
@@ -248,7 +249,6 @@ if(!isset($_GET['bar'])){
 	
 
     <script src="../js/menu.js"></script>
-    <script src="../js/redirection.js"></script>
 </body>
 
 </html>
