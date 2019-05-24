@@ -13,6 +13,7 @@ label {
 .hide {
   display: none;
 }
+
 .rating_amb {
     width: 90px;
     unicode-bidi: bidi-override;

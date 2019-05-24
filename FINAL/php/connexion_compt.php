@@ -8,7 +8,7 @@ $stmt = MyPDO::getInstance()->prepare("SELECT pseudo, password FROM User");
 $stmt->execute();
 
 
-if (isset($_POST['pseudo']) && isset($_POST['mdp']) && !empty($_POST['mdp']) && !empty($_POST['pseudo'])) { // vérification des variables du formulaire
+if (isset($_POST['pseudo']) && isset($_POST['mdp'])) { // vérification des variables du formulaire
     while(($ligne = $stmt->fetch())){ // parcours de la requete (liste des pseudos et mdp de chaque user)
         if( $_POST['pseudo'] == $ligne['pseudo'] && sha1($_POST['mdp']) == ($ligne['password'])){
         // user retrouvé
@@ -22,11 +22,11 @@ if (isset($_POST['pseudo']) && isset($_POST['mdp']) && !empty($_POST['mdp']) && 
         header('location: page_principale.php'); // connexion reussie, redirection vers profil user
         exit();
     } else {
-        header('location: accueil.php?err=errCo'); // echec connexion, redirection page de connexion
+        header('location: accueil.php?err=err1'); // echec connexion, redirection page de connexion
         exit();
     }
 } else {
-        header('location: accueil.php?err=errManqueInfos'); // tous les champs n'ont pas été correctement remplis
+        header('location: accueil.php?err=err2'); // tous les champs n'ont pas été correctement remplis
         exit();
     }
 

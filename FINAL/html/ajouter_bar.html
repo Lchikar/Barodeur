@@ -54,25 +54,6 @@
     
     <main>
         <h1>Ajouter un bar</h1>
-          <?php
-                if(isset($_GET['err'])){
-                    if ($_GET['err']=='errBarExisteDeja'){
-                        $message = '<h3>Ce bar a déjà été renseigné sur le site !</h3>';
-                        echo $message;
-                    }
-                    if ($_GET['err']=='errOubli'){
-                        $message = '<h3>Tous les champs obligatoires n\'ont pas été renseignés.</h3>';
-                        echo $message;
-                    }
-
-
-
-                }
-            ?>
-        
-        
-        
-        
         <form id="form_ajout_bar" method="post" action="../php/ajout_bar.php" enctype="multipart/form-data" >
             <input type="text" name="nom_bar" id="input_nom_bar" placeholder="Nom du bar*" required />
             <div id="adresse_bar">

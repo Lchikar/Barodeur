@@ -198,7 +198,7 @@
         border-width: 0;
     }
 
-    input[type="submit"i] {
+    input[type="submit"] {
         border-radius: 20px;
         margin: auto;
         width: 55vw;
@@ -234,6 +234,14 @@
   width: 20vw !important;
   height: 2vh;
 }
+
+.vide {
+  grid-column: 2;
+  grid-row : 1;
+  width: 20vw !important;
+  height: 2vh;
+}
+
 .moyenne {
   
   width: 20vw !important;
@@ -258,7 +266,7 @@
 }
 .trois {
   
-  width: 20vw !important;
+  width: 2vw !important;
   height: 2vh;
   grid-column: 3;
   grid-row : 2;
@@ -280,7 +288,7 @@
 }
 .six {
   
-  width: 20vw !important;
+  width: 2vw !important;
   height: 2vh;
   grid-column: 3;
   grid-row : 3;
@@ -303,7 +311,7 @@
 }
 .neuf {
   
-  width: 20vw !important;
+  width: 2vw !important;
   height: 2vh;
   grid-column: 3;
   grid-row : 4;
@@ -325,7 +333,7 @@
 }
 .douze {
   
-  width: 20vw !important;
+  width: 2vw !important;
   height: 2vh;
   grid-column: 3;
   grid-row : 5;
@@ -334,4 +342,8 @@
 .commentaires{
     width: auto !important;
     height: auto !important;
+}
+
+#envoi_notes{
+    width: 200px !important;
 }

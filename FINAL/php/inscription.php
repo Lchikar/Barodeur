@@ -12,7 +12,7 @@ echo "mdp : ".$mdp;
 
 $stmt1->execute();
 
-if (isset($_POST['pseudo']) && isset($_POST['mdp'])  && !empty($_POST['mdp']) && !empty($_POST['pseudo'])) { // vérification des variables du formulaire
+if (isset($_POST['pseudo']) && isset($_POST['mdp'])) { // vérification des variables du formulaire
     while(($ligne = $stmt1->fetch())){ // parcours de la requete (liste des pseudos et mdp de chaque user)
         if( $pseudo == $ligne['pseudo']){
             header('location: accueil.php?err=errpseudo');// pseudo déjà utilisé

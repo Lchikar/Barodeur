@@ -6,9 +6,8 @@
 session_start();
 require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
-if(!isset($_GET['bar']) || empty($_GET['bar'])){
-	header('location: page_principale.php');// ce bar est déjà enregistré
-    exit();
+if(!isset($_GET['bar'])){
+	echo "Erreur GET\n";
 }
 ?>
     <meta charset="utf-8">
@@ -29,7 +28,7 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 				<div id="classer"  onClick="Afficher()"></div>
 			</div>
 			<div>
-				<form>
+				<form id="formRecherche" method="get" action="recherche_bar.php">
 					<input type="text" name="rechercher"  placeholder="Rechercher" />
 				</form>
 			</div>
@@ -85,23 +84,23 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 			<div></div><div></div><div></div><div></div>
 			<div id="bottom">
 				
-				<form id="notes" method="post" action="">
+				<form id="notes" method="GET" action="ajouter_note.php">
 				<p class="wrapper">
 				<div class="notes"><h2>Notes :</h2></div>
-				<div> </div>
+				<div class="vide"> </div>
 				<div class="moyenne"><h2>Moyenne :</h2></div>
 					<div class="un"><h3 class="h3">Ambiance :</h3></div>
 						<div class="rating_amb deux">
-	                        <input id="staramb5" name="ambi1" type="radio" value="5" class="radio-btn hide" />
-	                        <label for="staramb5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-	                        <input id="staramb4" name="ambi2" type="radio" value="4" class="radio-btn hide" />
-	                        <label for="staramb4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-	                        <input id="staramb3" name="ambi3" type="radio" value="3" class="radio-btn hide" />
-	                        <label for="staramb3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-	                        <input id="staramb2" name="ambi4" type="radio" value="2" class="radio-btn hide" />
-	                        <label for="staramb2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
 	                        <input id="staramb1" name="ambi5" type="radio" value="1" class="radio-btn hide" />
 	                        <label for="staramb1" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                        <input id="staramb2" name="ambi4" type="radio" value="2" class="radio-btn hide" />
+	                        <label for="staramb2" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                        <input id="staramb3" name="ambi3" type="radio" value="3" class="radio-btn hide" />
+	                        <label for="staramb3" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                        <input id="staramb4" name="ambi2" type="radio" value="4" class="radio-btn hide" />
+	                        <label for="staramb4" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+	                        <input id="staramb5" name="ambi1" type="radio" value="5" class="radio-btn hide" />
+	                        <label for="staramb5" ><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
 	                    </div>
 					<div class="trois">
 						<?php
@@ -140,8 +139,8 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
-						FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
-						WHERE Bar.name = :bar AND MarkType.markType = 'prix';");
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+						WHERE Bar.name = :bar AND markType.markType = 'prix';");
 						$stmt->bindValue(':bar', $_GET['bar']);
 						
 						$stmt->execute();
@@ -173,8 +172,8 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
-						FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
-						WHERE Bar.name = :bar AND MarkType.markType = 'distance';");
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+						WHERE Bar.name = :bar AND markType.markType = 'distance';");
 						$stmt->bindValue(':bar', $_GET['bar']);
 						
 						$stmt->execute();
@@ -205,8 +204,8 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 						<?php
 						$stmt =  MyPDO::getInstance()->prepare(
 						"SELECT Mark.value as 'value'
-						FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
-						WHERE Bar.name = :bar AND MarkType.markType = 'general';");
+						FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+						WHERE Bar.name = :bar AND markType.markType = 'general';");
 						$stmt->bindValue(':bar', $_GET['bar']);
 						
 						$stmt->execute();
@@ -219,12 +218,25 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 						else $moy = $somme/$cpt;
 						echo $moy."/5";
 					?></div>
+					<?php
+					echo('<input type="hidden" name="bar" id="bar" value="'.$_GET['bar'].'"/>');
+					?>
+					<input type="submit" id="envoi_notes" value="Envoie tes notes"/>
+
 					</form>
 				</p>
+
+
 				<h2>Commentaires :</h2>
+					<?php
+					echo '<form id="Publie" method="GET" action="ajouter_comm.php">';
+					?>	
 					<?php 
 						echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo'].", laisse ton commentaire'/>");
+						echo('<input type="hidden" name="bar" id="bar" value="'.$_GET['bar'].'"/>');
 					?>
+						<input type="submit" id="publieA"value="Publie ton comm'"/>
+					</form>
 				<div class="commentaires">
 					<?php
 						$stmt =  MyPDO::getInstance()->prepare(
@@ -236,16 +248,13 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 						$stmt->execute();
 
 						while($comm = $stmt->fetch()){
-							echo $comm['pseudo']." dit :\"".$comm['text']."\"";
+							echo $comm['pseudo']." dit :\"".$comm['text']."\"<br><br><br>";
 						}
 					?>
 				</div>
 				<div id="boutons">
-				<form id="Publie" method="post" action="">
-				<input type="submit" id="publieA"value="Publie ton comm'"/>
-				</form>
 				<form id="Retour" method="post" action="page_principale.php">
-				<input type="submit" id="retourA"value="Retour"/>
+					<input type="submit" id="retourA"value="Retour"/>
 				</form>
 				</div>
 			</div>
@@ -255,19 +264,17 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 		
 		<div id="hidden" style="display: none;" >
 			<div id="croix" onClick="Cacher()">
-
 			</div>
 			<form id="mainForm" method="post">
-	
  				 <div id="trier"><input type="submit"  value="Classer par :" /></div>
  	 				<div id="cocher">
- 	 				<label><input type="radio" id="prix" name="tri" value="Prix">Prix</label>
-    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance">Ambiance</label>
-    				<label><input type="radio" id="note" name="tri" value="Note">Note</label>
-    				<label><input type="radio" id="distance" name="tri" value="Distance">Distance</label>
-    				</div>
+ 	 				<label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
+    				<label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
+    				<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
+    				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
+    			</div>
     
-    			<input type="submit"  value="Ajouter bar" />
+    			<input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>
     			<a href="deconnexion.php" class="deconnexion">
                     <div id="divDeco"></div>
                 </a>
@@ -277,6 +284,7 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 	
 
     <script src="../js/menu.js"></script>
+    <script src="../js/redirection.js"></script>
 </body>
 
 </html>
