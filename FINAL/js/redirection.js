@@ -39,5 +39,5 @@ function redir_Distance(){
 }
     
 function redir_Ajout(){
-    document.location.href= "../html/ajouter_bar.html";
+    document.location.href= "../php/ajouter_bar.php";
 }
