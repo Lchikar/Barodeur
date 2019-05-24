@@ -23,32 +23,51 @@
         margin: auto;
     }
 
-    #affiche_bar {
-        margin: 0;
-        min-height: 100vh;
+    #top {
+        width: 80vw;
+		background-color: #efd8dd; 
+        border-radius: 3px; 
+        text-align: left; 
+        padding: 5px; 
+        margin: 15px 0; 
+        margin-top: -5px;
+        position:relative; 
+        display: flex; 
+        flex-direction: row;  
         min-width: 100vw; 
+        height: 40vh;
+        margin: 20px; 
+    }
+	
+	 #top div{ 
+        width:45vw;
+        height: 20vh; 
     }
 
     #bottom{
         min-width: 100vw;
         min-height: 50vh;
     }
-
-    #top{
-        position:relative;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        min-width: 100vw;
-        height: 40vh;
-
+	
+    #picture{ 
+        margin: 3px; 
+    }
+	
+	.photo{
+		max-width: 100%;
+		height: auto;
+	}
+	
+	#infos{ 
+        margin-left: 3px; 
     }
 
-    #picture{
-        /*background-image: url(../image/bars/Falstaff.jpg);
-        background-size: 100% 100%;*/
-    }
-
+	#informations{
+		position:absolute;
+		margin-top:30vh;
+		height: 5vh;
+	}
+	
     #top div{
         width:50vw;
     }
@@ -57,14 +76,14 @@
         min-width: 100vw;
     }
 
-    #Retour{
+    #Retour, #Publie{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
     }
 
-    #retourA{
+    #retourA, #publieA{
         border-color: #65010c;
         color: white;
         height: 50px;
@@ -79,13 +98,13 @@
    
     #notes{
         display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto; 
-        align-items:center;
-        text-align: center;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto auto; 
+      align-items:center;
+      text-align: center;
         }
     
-    .h3{
+    body h3{
         margin:0px;
     }
     button[type="button"]{
@@ -179,7 +198,7 @@
         border-width: 0;
     }
 
-    input[type="submit"i] {
+    input[type="submit"] {
         border-radius: 20px;
         margin: auto;
         width: 55vw;
@@ -200,4 +219,131 @@
         background-color: #85000c;
         font-family: 'El Messiri', sans-serif;
     }
+}
+
+.wrapper {
+    display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 5px;
+      grid-auto-rows: minmax(auto, auto);
+}
+
+.notes {
+  grid-column: 1;
+  grid-row : 1;
+  width: 20vw !important;
+  height: 2vh;
+}
+
+.vide {
+  grid-column: 2;
+  grid-row : 1;
+  width: 20vw !important;
+  height: 2vh;
+}
+
+.moyenne {
+  
+  width: 20vw !important;
+  height: 2vh;
+  grid-column: 3;
+  grid-row : 1;
+}
+
+.un {
+  
+  width: 20vw !important;
+  height: 2vh;
+  grid-column: 1;
+  grid-row : 2;
+}
+.deux {
+  
+  width: 40vw !important;
+  height: 2vh;
+  grid-column: 2;
+  grid-row : 2;
+}
+.trois {
+  
+  width: 2vw !important;
+  height: 2vh;
+  grid-column: 3;
+  grid-row : 2;
+}
+
+.quatre {
+  
+  width: 20vw !important;
+  height: 2vh;
+  grid-column: 1;
+  grid-row : 3;
+}
+.cinq {
+  
+  width: 40vw !important;
+  height: 2vh;
+  grid-column: 2;
+  grid-row : 3;
+}
+.six {
+  
+  width: 2vw !important;
+  height: 2vh;
+  grid-column: 3;
+  grid-row : 3;
+}
+
+
+.sept {
+  
+  width: 20vw !important;
+  height: 2vh;
+  grid-column: 1;
+  grid-row : 4;
+}
+.huit {
+  
+  width: 40vw !important;
+  height: 2vh;
+  grid-column: 2;
+  grid-row : 4;
+}
+.neuf {
+  
+  width: 2vw !important;
+  height: 2vh;
+  grid-column: 3;
+  grid-row : 4;
+}
+
+.dix {
+  
+  width: 20vw !important;
+  height: 2vh;
+  grid-column: 1;
+  grid-row : 5;
+}
+.onze {
+  
+  width: 40vw !important;
+  height: 2vh;
+  grid-column: 2;
+  grid-row : 5;
+}
+.douze {
+  
+  width: 2vw !important;
+  height: 2vh;
+  grid-column: 3;
+  grid-row : 5;
+}
+
+.commentaires{
+    width: auto !important;
+    height: auto !important;
+}
+
+#envoi_notes{
+    width: 200px !important;
 }

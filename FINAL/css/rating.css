@@ -1,0 +1,144 @@
+label {
+  display: inline-block;
+  background: rgb(150,114,114); url(../image/wine-glasses.png);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+}
+
+.txt-center {
+  text-align: center;
+}
+.hide {
+  display: none;
+}
+
+.rating_amb {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+.rating_amb > label {
+    float: left;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    color: #000;
+}
+.rating_amb > label:hover,
+.rating_amb > label:hover ~ label,
+.rating_amb > input.radio-btn:checked ~ label {
+    background: rgb(211,43,46); url(../img/voteFull.png);
+}
+.rating_amb > label:hover:before,
+.rating_amb > label:hover ~ label:before,
+.rating_amb > input.radio-btn:checked ~ label:before,
+.rating_amb > input.radio-btn:checked ~ label:before {
+    background: rgb(211,43,46); url(../img/voteFull.png);
+    position: relative;
+    left: 0;
+}
+
+
+.rating_prix {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+.rating_prix > label {
+    float: left;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    color: #000;
+}
+.rating_prix > label:hover,
+.rating_prix > label:hover ~ label,
+.rating_prix > input.radio-btn:checked ~ label {
+    background: rgb(211,43,46); url(../img/voteFull.png);
+}
+.rating_prix > label:hover:before,
+.rating_prix > label:hover ~ label:before,
+.rating_prix > input.radio-btn:checked ~ label:before,
+.rating_prix > input.radio-btn:checked ~ label:before {
+    background: rgb(211,43,46); url(../img/voteFull.png);
+    position: relative;
+    left: 0;
+}
+
+.rating_dist {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+.rating_dist > label {
+    float: left;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    color: #000;
+}
+.rating_dist > label:hover,
+.rating_dist > label:hover ~ label,
+.rating_dist > input.radio-btn:checked ~ label {
+    background: rgb(211,43,46); url(../img/voteFull.png);
+}
+.rating_dist > label:hover:before,
+.rating_dist > label:hover ~ label:before,
+.rating_dist > input.radio-btn:checked ~ label:before,
+.rating_dist > input.radio-btn:checked ~ label:before {
+    background: rgb(211,43,46); url(../img/voteFull.png);
+    position: relative;
+    left: 0;
+}
+
+.rating_gen {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+.rating_gen > label {
+    float: left;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    color: #000;
+}
+.rating_gen > label:hover,
+.rating_gen > label:hover ~ label,
+.rating_gen > input.radio-btn:checked ~ label {
+    background: rgb(211,43,46); url(../img/voteFull.png);
+}
+.rating_gen > label:hover:before,
+.rating_gen > label:hover ~ label:before,
+.rating_gen > input.radio-btn:checked ~ label:before,
+.rating_gen > input.radio-btn:checked ~ label:before {
+    background: rgb(211,43,46); url(../img/voteFull.png);
+    position: relative;
+    left: 0;
+}

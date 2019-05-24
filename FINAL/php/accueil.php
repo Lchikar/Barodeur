@@ -7,7 +7,7 @@
     <meta name="description" content="Bienvenue à Bar à Gogo !">
     <meta name="keywords" content="bar etudiant">
     <meta name="viewport" content="width=device-width"/>
-    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
     <title>Accueil</title>
 </head>
@@ -20,13 +20,12 @@
         		Ici, tu vas pouvoir noter, commenter, poster ou juste t'informer sur les bars du Jeudimac.</h2>
         			
         		
-        		<!------<?php
+        		<?php
         			//if($_GET['erreur']=='err'){
         			//$message = '<h2>une erreur s\'est produite pendant votre identification. Vous devez remplir tous les champs</h2>
 			        //<h2>Cliquez <a href="./accueil.html">ici</a> pour revenir</h2>';
-        			
-        			}
-        		?>---->
+        			//}
+        		?>
         <form id="formConnexion" method="post" action="">
             <div id="divConnexion">
                 <input type="text" name="pseudo" id="pseudo" placeholder=" Pseudo de la race"/>
@@ -34,12 +33,12 @@
             </div>
             <div id="Connexion">	
                 <button  id="submitConnexion" >Connexion</button>
-            <button  id="submitInscription" value="Inscription">Inscription</button>
+                <button  id="submitInscription">Inscription</button>
             </div>
         </form>
     </main>
 
-  <script src="js/redirection.js"></script>
+  <script src="../js/redirection.js"></script>
 </body>
 
 </html>
