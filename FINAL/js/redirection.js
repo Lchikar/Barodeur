@@ -29,7 +29,7 @@ function redir_Ambiance() {
 }
 
 function redir_Note() {
-    console.log("Trier par note");
+    console.log("Trier par note générale sanns e");
     document.location.href = "page_principale.php?type=general";
 }
 
@@ -39,5 +39,6 @@ function redir_Distance() {
 }
     
 function redir_Ajout(){
-    document.location.href= "../php/ajouter_bar.php";
+    console.log("ajout bar php");
+    document.location.href= "ajouter_bar.php";
 }

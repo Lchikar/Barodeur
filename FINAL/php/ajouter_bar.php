@@ -168,6 +168,7 @@
         <p id="champs_obligatoires">* : champs obligatoires</p>
     </footer>
     <script src="../js/menu.js"></script>
+    <script src="../js/redirection.js"></script>
 </body>
 
 </html>
