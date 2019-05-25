@@ -27,7 +27,7 @@
     }
 
     #affiche_bar {
-        width: 80vw;
+        width: 86vw;
         background-color: #efd8dd;
         border-radius: 3px;
         text-align: left;
@@ -38,7 +38,6 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        min-width: 100vw;
         height: 40vh;
         margin: 20px;
     }

@@ -4,7 +4,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
 echo "Commentaire GET: ".$_GET['comm'];
 
-if(isset($_GET['comm']) && !empty($_GET['comm'])){
+if(isset($_GET['comm']) && !empty($_GET['comm']) && $_GET['comm'] != ""){
     $comm = $_GET['comm'];
 }
 

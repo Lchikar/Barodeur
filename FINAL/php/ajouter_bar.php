@@ -38,9 +38,9 @@
 
             <div id="trier"><input type="submit" value="Classer par :" /></div>
             <div id="cocher">
+                <label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note générale</label>
                 <label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
                 <label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
-                <label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
                 <label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
             </div>
 

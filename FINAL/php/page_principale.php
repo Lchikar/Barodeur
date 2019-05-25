@@ -52,7 +52,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				}
 
 				$stmt =  MyPDO::getInstance()->prepare(
-				"SELECT DISTINCT name, photo, 
+				"SELECT DISTINCT name, photo, website, 
 				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse
 				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN MarkType
 				$cond
@@ -72,7 +72,10 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							 echo('<br><div id="infos">');
 							 echo "<br>".$general['name']."<br>";
 							 echo "<br>".$general['adresse']."<br>";
-							 echo '</div>';
+                             if ($general['website'] != ''){
+                                    echo "<br><a href=".$general['website']."target=\"_blank\"><u>Site du bar</u></a><br>";
+                              }
+							 
 
 							 $name_bar = $general['name'];
 							 
@@ -93,6 +96,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							if(0 == $cpt) $moy = 0;
 							else $moy = $somme/$cpt;
 							echo "<br>".$markType." : ".$moy."/5";
+                            echo '</div>';
 							echo "</div>";
 							echo "</div>";
 							echo '</a></div>';
@@ -111,9 +115,9 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 	
  				 <div id="trier"><input type="submit"  value="Classer par :" /></div>
  	 				<div id="cocher">
+                    <label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note générale</label>
  	 				<label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
     				<label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
-    				<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
     				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
     				</div>
                     <input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>

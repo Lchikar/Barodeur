@@ -43,7 +43,7 @@ if(isset($_GET['bar']) && !empty($_GET['bar'])){
     foreach ($marktypes as $marktype => $markvalue) {
         $stmt2 = MyPDO::getInstance()->prepare(
                 "INSERT INTO Mark (id_markType, id_user, id_bar, value) VALUES(
-                (SELECT markType.id_markType FROM markType WHERE markType.markType = :markType),
+                (SELECT MarkType.id_markType FROM MarkType WHERE MarkType.markType = :markType),
                 (SELECT User.id_user FROM User WHERE User.pseudo = :pseudo),
                 (SELECT Bar.id_bar FROM Bar WHERE Bar.name = :bar),
                 :value_mark);");
