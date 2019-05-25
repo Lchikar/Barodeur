@@ -25,65 +25,67 @@
 
     #top {
         width: 80vw;
-		background-color: #efd8dd; 
-        border-radius: 3px; 
-        text-align: left; 
-        padding: 5px; 
-        margin: 15px 0; 
+        background-color: #efd8dd;
+        border-radius: 3px;
+        text-align: left;
+        padding: 5px;
+        margin: 15px 0;
         margin-top: -5px;
-        position:relative; 
-        display: flex; 
-        flex-direction: row;  
-        min-width: 100vw; 
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        min-width: 100vw;
         height: 40vh;
-        margin: 20px; 
-    }
-	
-	 #top div{ 
-        width:45vw;
-        height: 20vh; 
+        margin: 20px;
     }
 
-    #bottom{
+    #top div {
+        width: 45vw;
+        height: 20vh;
+    }
+
+    #bottom {
         min-width: 100vw;
         min-height: 50vh;
     }
-	
-    #picture{ 
-        margin: 3px; 
-    }
-	
-	.photo{
-		max-width: 100%;
-		height: auto;
-	}
-	
-	#infos{ 
-        margin-left: 3px; 
+
+    #picture {
+        margin: 3px;
     }
 
-	#informations{
-		position:absolute;
-		margin-top:30vh;
-		height: 5vh;
-	}
-	
-    #top div{
-        width:50vw;
+    .photo {
+        max-width: 100%;
+        height: auto;
     }
 
-    #comm{
+    #infos {
+        margin-left: 3px;
+    }
+
+    #informations {
+        position: absolute;
+        margin-top: 30vh;
+        height: 5vh;
+    }
+
+    #top div {
+        width: 50vw;
+    }
+
+    #comm {
         min-width: 100vw;
     }
 
-    #Retour, #Publie{
+    #Retour,
+    #Publie {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
     }
 
-    #retourA, #publieA{
+    #retourA,
+    #publieA {
         border-color: #65010c;
         color: white;
         height: 50px;
@@ -93,21 +95,22 @@
         border-radius: 8px;
         background-color: #65010c;
         letter-spacing: 1.5px;
-        font-size: 20px; 
+        font-size: 20px;
     }
-   
-    #notes{
+
+    #notes {
         display: grid;
-      grid-template-columns: auto auto auto;
-      grid-template-rows: auto auto auto; 
-      align-items:center;
-      text-align: center;
-        }
-    
-    body h3{
-        margin:0px;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        align-items: center;
+        text-align: center;
     }
-    button[type="button"]{
+
+    body h3 {
+        margin: 0px;
+    }
+
+    button[type="button"] {
         border-color: #65010c;
         color: white;
         height: 10px;
@@ -116,7 +119,7 @@
         margin: 2px;
         border-radius: 8px;
         background-color: #65010c;
-        font-size: 10px; 
+        font-size: 10px;
     }
 
     #deconnection {
@@ -223,127 +226,135 @@
 
 .wrapper {
     display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 5px;
-      grid-auto-rows: minmax(auto, auto);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: minmax(auto, auto);
 }
 
 .notes {
-  grid-column: 1;
-  grid-row : 1;
-  width: 20vw !important;
-  height: 2vh;
+    grid-column: 1;
+    grid-row: 1;
+    width: 20vw !important;
+    height: 2vh;
 }
 
 .vide {
-  grid-column: 2;
-  grid-row : 1;
-  width: 20vw !important;
-  height: 2vh;
+    grid-column: 2;
+    grid-row: 1;
+    width: 20vw !important;
+    height: 2vh;
 }
 
 .moyenne {
-  
-  width: 20vw !important;
-  height: 2vh;
-  grid-column: 3;
-  grid-row : 1;
+
+    width: 20vw !important;
+    height: 2vh;
+    grid-column: 3;
+    grid-row: 1;
 }
 
 .un {
-  
-  width: 20vw !important;
-  height: 2vh;
-  grid-column: 1;
-  grid-row : 2;
+
+    width: 20vw !important;
+    height: 2vh;
+    grid-column: 1;
+    grid-row: 2;
 }
+
 .deux {
-  
-  width: 40vw !important;
-  height: 2vh;
-  grid-column: 2;
-  grid-row : 2;
+
+    width: 40vw !important;
+    height: 2vh;
+    grid-column: 2;
+    grid-row: 2;
 }
+
 .trois {
-  
-  width: 2vw !important;
-  height: 2vh;
-  grid-column: 3;
-  grid-row : 2;
+
+    width: 2vw !important;
+    height: 2vh;
+    grid-column: 3;
+    grid-row: 2;
 }
 
 .quatre {
-  
-  width: 20vw !important;
-  height: 2vh;
-  grid-column: 1;
-  grid-row : 3;
+
+    width: 20vw !important;
+    height: 2vh;
+    grid-column: 1;
+    grid-row: 3;
 }
+
 .cinq {
-  
-  width: 40vw !important;
-  height: 2vh;
-  grid-column: 2;
-  grid-row : 3;
+
+    width: 40vw !important;
+    height: 2vh;
+    grid-column: 2;
+    grid-row: 3;
 }
+
 .six {
-  
-  width: 2vw !important;
-  height: 2vh;
-  grid-column: 3;
-  grid-row : 3;
+
+    width: 2vw !important;
+    height: 2vh;
+    grid-column: 3;
+    grid-row: 3;
 }
 
 
 .sept {
-  
-  width: 20vw !important;
-  height: 2vh;
-  grid-column: 1;
-  grid-row : 4;
+
+    width: 20vw !important;
+    height: 2vh;
+    grid-column: 1;
+    grid-row: 4;
 }
+
 .huit {
-  
-  width: 40vw !important;
-  height: 2vh;
-  grid-column: 2;
-  grid-row : 4;
+
+    width: 40vw !important;
+    height: 2vh;
+    grid-column: 2;
+    grid-row: 4;
 }
+
 .neuf {
-  
-  width: 2vw !important;
-  height: 2vh;
-  grid-column: 3;
-  grid-row : 4;
+
+    width: 2vw !important;
+    height: 2vh;
+    grid-column: 3;
+    grid-row: 4;
 }
 
 .dix {
-  
-  width: 20vw !important;
-  height: 2vh;
-  grid-column: 1;
-  grid-row : 5;
-}
-.onze {
-  
-  width: 40vw !important;
-  height: 2vh;
-  grid-column: 2;
-  grid-row : 5;
-}
-.douze {
-  
-  width: 2vw !important;
-  height: 2vh;
-  grid-column: 3;
-  grid-row : 5;
+
+    width: 20vw !important;
+    height: 2vh;
+    grid-column: 1;
+    grid-row: 5;
 }
 
-.commentaires{
+.onze {
+
+    width: 40vw !important;
+    height: 2vh;
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.douze {
+
+    width: 2vw !important;
+    height: 2vh;
+    grid-column: 3;
+    grid-row: 5;
+}
+
+.commentaires {
     width: auto !important;
     height: auto !important;
 }
 
-#envoi_notes{
+#envoi_notes {
     width: 200px !important;
 }

@@ -100,8 +100,6 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 						}
 					?>
 				</div>
-			</div>
-		</div>
 		
 		<!--deuxieme interface quand on clique sur le bouton-->
 		
@@ -118,8 +116,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
     				<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
     				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
     				</div>
-    
-    			
+                    <input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>
     	</form>
     </div>
 

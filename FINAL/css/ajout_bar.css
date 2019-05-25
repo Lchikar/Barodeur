@@ -1,21 +1,25 @@
 @media only screen and (max-width: 830px) {
-    #ajoutBar{
+    #ajoutBar {
         font-family: 'El Messiri', sans-serif;
         position: relative;
     }
-    #ajoutBar main{
+
+    #ajoutBar main {
         display: flex;
         flex-direction: column;
         align-items: center;
         min-height: 100vh;
         width: 100vw;
     }
-    #form_ajout_bar, #form_ajout_bar div{
+
+    #form_ajout_bar,
+    #form_ajout_bar div {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    #input_nom_bar{
+
+    #input_nom_bar {
         width: 80vw;
         background-color: #bfbfbf;
         border-radius: 3px;
@@ -24,13 +28,17 @@
         margin: 15px 0;
         margin-top: -5px;
     }
-    #form_ajout_bar input::placeholder, #input_plus_dinfos::placeholder, #commentaire_ajout::placeholder{
+
+    #form_ajout_bar input::placeholder,
+    #input_plus_dinfos::placeholder,
+    #commentaire_ajout::placeholder {
         font-size: 17px;
         padding-left: 7px;
         text-align: left;
         font-family: 'El Messiri', sans-serif;
     }
-    #form_ajout_bar div{
+
+    #form_ajout_bar div {
         width: 80vw;
         padding: 5px;
         border-radius: 3px;
@@ -39,14 +47,20 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
-    #form_ajout_bar h2, #label_photo{
+
+    #form_ajout_bar h2,
+    #label_photo {
         margin: 5px;
         width: 78vw;
         font-size: 17px;
         font-weight: normal;
         color: #565656;
     }
-    #form_ajout_bar div input, #type_bar, #input_plus_dinfos, #commentaire_ajout{
+
+    #form_ajout_bar div input,
+    #type_bar,
+    #input_plus_dinfos,
+    #commentaire_ajout {
         background-color: white;
         border-radius: 3px;
         margin: 5px;
@@ -54,31 +68,43 @@
         padding-left: 7px;
         font-size: 15px;
     }
-    #input_numero_rue, #input_ville_bar, #input_code_postal, #input_telephone, #input_site_web{
+
+    #input_numero_rue,
+    #input_ville_bar,
+    #input_code_postal,
+    #input_telephone,
+    #input_site_web {
         width: 44%;
     }
-    #input_adresse_bar, #input_plus_dinfos, #commentaire_ajout{
+
+    #input_adresse_bar,
+    #input_plus_dinfos,
+    #commentaire_ajout {
         width: 94%;
         border: none;
     }
-    #ajout_photo{
+
+    #ajout_photo {
         width: 94%;
         font-family: 'El Messiri', sans-serif;
         font-size: 10px;
     }
-    #type_bar{
+
+    #type_bar {
         width: 100%;
         font-family: 'El Messiri', sans-serif;
         border: none;
     }
-    #form_ajout_bar #div_select{
+
+    #form_ajout_bar #div_select {
         margin: 0;
         position: relative;
         padding: 0;
         background-color: rgba(0, 0, 0, 0);
         width: 44%;
     }
-    #div_select::after{
+
+    #div_select::after {
         content: '';
         height: 7px;
         width: 7px;
@@ -89,23 +115,28 @@
         top: 15px;
         right: 15px;
     }
-    #form_ajout_bar div:nth-child(even){
+
+    #form_ajout_bar div:nth-child(even) {
         background-color: #efd8dd;
     }
-    #form_ajout_bar div:nth-child(odd){
+
+    #form_ajout_bar div:nth-child(odd) {
         background-color: #bfbfbf;
     }
-    #input_numero_rue{
+
+    #input_numero_rue {
         width: 35vw;
     }
-    #champs_obligatoires{
+
+    #champs_obligatoires {
         position: fixed;
         bottom: 0;
         right: 0;
         margin: 10px;
         font-size: 10px;
     }
-    #validation_ajout_bar{
+
+    #validation_ajout_bar {
         margin-bottom: 50px;
         margin-top: 20px;
         border-color: #65010c;
@@ -116,22 +147,26 @@
         letter-spacing: 1.5px;
         font-size: 20px;
     }
-    #div_note1 div:nth-child(even){
-  		width: 40vw;
-  		margin-left: 5px;
+
+    #div_note1 div:nth-child(even) {
+        width: 40vw;
+        margin-left: 5px;
     }
-    #div_note1 div:nth-child(odd){
-    	width: 30vw;
-    	height: 5vh;
+
+    #div_note1 div:nth-child(odd) {
+        width: 30vw;
+        height: 5vh;
     }
-    h3{
-    	margin:0;
+
+    h3 {
+        margin: 0;
     }
-    #div_note1{
-    	display: grid;
-      grid-template-columns: auto auto;
-      grid-template-rows: auto auto auto; 
-      align-items:center;
-      text-align: center;
-     }
+
+    #div_note1 {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        align-items: center;
+        text-align: center;
+    }
 }

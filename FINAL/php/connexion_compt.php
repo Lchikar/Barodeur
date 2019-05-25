@@ -7,33 +7,26 @@ $stmt = MyPDO::getInstance()->prepare("SELECT pseudo, password FROM User");
 
 $stmt->execute();
 
-
-if (isset($_POST['pseudo']) && isset($_POST['mdp'])) { // vérification des variables du formulaire
+if (isset($_POST['pseudo']) && isset($_POST['mdp']) && !empty($_POST['mdp']) && !empty($_POST['pseudo'])) { // vérification des variables du formulaire
     while(($ligne = $stmt->fetch())){ // parcours de la requete (liste des pseudos et mdp de chaque user)
-        if( $_POST['pseudo'] == $ligne['pseudo'] && $_POST['mdp'] == $ligne['password']){
+        if( $_POST['pseudo'] == $ligne['pseudo'] && sha1($_POST['mdp']) == ($ligne['password'])){
         // user retrouvé
         $_SESSION['pseudo'] = $_POST['pseudo'];
         $_SESSION['mdp'] = $_POST['mdp'];
+        echo "<script>window.alert( 'Debug Objects');</script>";
         }
     }
 
     if (isset($_SESSION['pseudo']) && isset($_SESSION['mdp'])){
         header('location: page_principale.php'); // connexion reussie, redirection vers profil user
         exit();
-<<<<<<< HEAD:front/connexion_compt.php
-    }
-    else{
-        header('location: accueil.html?err=err'); // echec connexion, redirection page de connexion
-=======
     } else {
-        header('location: accueil.php?err=err1'); // echec connexion, redirection page de connexion
+        header('location: accueil.php?err=errCo'); // echec connexion, redirection page de connexion
         exit();
     }
 } else {
-        header('location: accueil.php?err=err2'); // tous les champs n'ont pas été correctement remplis
->>>>>>> master:FINAL/php/connexion_compt.php
+        header('location: accueil.php?err=errManqueInfos'); // tous les champs n'ont pas été correctement remplis
         exit();
     }
-}
 
 ?>
