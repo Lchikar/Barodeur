@@ -42,7 +42,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				//affiche tri ou par defaut
 				if(isset($_GET['type'])){
 					$markType = $_GET['type'];
-					$cond = "WHERE markType.markType = '$markType'";
+					$cond = "WHERE MarkType.markType = '$markType'";
 					$order="ORDER BY Mark.value DESC";
 				} 
 				else {
@@ -54,7 +54,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				$stmt =  MyPDO::getInstance()->prepare(
 				"SELECT DISTINCT name, photo, 
 				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse
-				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN markType
+				FROM Bar NATURAL JOIN City NATURAL JOIN Mark NATURAL JOIN MarkType
 				$cond
 				$order;");
 
@@ -77,11 +77,11 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							 $name_bar = $general['name'];
 							 
 							 if($cond != "")
-							 	$cond = "AND markType.markType = '$markType'"; 
+							 	$cond = "AND MarkType.markType = '$markType'"; 
 							 echo '<div id="moy">';
 							 $stmt2 =  MyPDO::getInstance()->prepare(
 								"SELECT Mark.value as 'value'
-								FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
+								FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
 								WHERE Bar.name =\"$name_bar\" $cond;");
 								
 							$stmt2->execute();
@@ -100,8 +100,6 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 						}
 					?>
 				</div>
-			</div>
-		</div>
 		
 		<!--deuxieme interface quand on clique sur le bouton-->
 		
@@ -119,7 +117,10 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
     				<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
     				</div>
     
-    			
+    			<input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>
+    			<a href="deconnexion.php" class="deconnexion">
+                    <div id="divDeco"></div>
+                </a>
     	</form>
     </div>
 
