@@ -72,7 +72,9 @@ if(isset($_POST['site_web']) && !empty($_POST['site_web'])){
 
 if(isset($_FILES['ajout_photo'])){
     $ajout_photo = basename($_FILES["ajout_photo"]["name"]);
-    $target_dir = "C:\\Users\\Loulou\\OndeDrive\\IMAC1\\Git\\Projet_Web_S2\\FINAL\\image\\bars\\"; // CHEMIN ABSOLU DU DOSSIER 'bars'
+//$target_dir = "C:\\Users\\Loulou\\OndeDrive\\IMAC1\\Git\\Projet_Web_S2\\FINAL\\image\\bars\\"; // CHEMIN ABSOLU DU DOSSIER 'bars'
+    //$target_dir = "lucielesbats.fr/barodeur/image/bars/"; // CHEMIN ABSOLU DU DOSSIER 'bars'
+    $target_dir = "../image/bars/";
     $target_file = $target_dir.basename($_FILES["ajout_photo"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -217,7 +219,7 @@ $marktypes = array('ambiance' => $markambi, 'general' => $markgen,
 foreach ($marktypes as $marktype => $markvalue) {
     $stmt2 = MyPDO::getInstance()->prepare(
             "INSERT INTO Mark (id_markType, id_user, id_bar, value) VALUES(
-            (SELECT markType.id_markType FROM markType WHERE markType.markType = :markType),
+            (SELECT MarkType.id_markType FROM MarkType WHERE MarkType.markType = :markType),
             (SELECT User.id_user FROM User WHERE User.pseudo = :pseudo),
             (SELECT Bar.id_bar FROM Bar WHERE Bar.name = :bar),
             :value_mark);");

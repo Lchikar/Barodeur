@@ -121,7 +121,7 @@
     }
 
     #mainForm {
-        height: 40vh;
+        height: 60vh;
         width: 55vw;
         display: flex;
         flex-direction: column;

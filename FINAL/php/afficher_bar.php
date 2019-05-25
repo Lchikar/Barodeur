@@ -107,8 +107,8 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 						<?php
 							$stmt =  MyPDO::getInstance()->prepare(
 							"SELECT Mark.value as 'value'
-							FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-							WHERE Bar.name = :bar AND markType.markType = 'ambiance';");
+							FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
+							WHERE Bar.name = :bar AND MarkType.markType = 'ambiance';");
 							$stmt->bindValue(':bar', $_GET['bar']);
 							
 							$stmt->execute();
@@ -231,7 +231,6 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 					<input type="submit" id="envoi_notes" value="Envoie tes notes"/>
 
 					</form>
-				</p>
 
 
 				<h2>Commentaires :</h2>
