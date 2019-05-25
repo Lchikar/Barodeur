@@ -1,11 +1,19 @@
 label {
     display: inline-block;
     background: rgb(150, 114, 114);
-    url(../image/wine-glasses.png);
     background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin: 2px;
+}
+
+.div_affiche_note img{
+    height: 30px; 
+    width: 30px;
+}
+
+#titre_commentaires{
+    max-width: 85vw;
 }
 
 .txt-center {
@@ -16,6 +24,14 @@ label {
     display: none;
 }
 
+/*#notes .radio-btn:checked ~ label{
+    background: rgb(211, 43, 46);
+}*/
+
+.note_selec{
+     background-color: rgb(211, 43, 46);
+}
+/*
 .rating_amb {
     width: 90px;
     unicode-bidi: bidi-override;
@@ -40,7 +56,6 @@ label {
 .rating_amb > label:hover ~ label,
 .rating_amb > input.radio-btn:checked ~ label {
     background: rgb(211, 43, 46);
-    url(../img/voteFull.png);
 }
 
 .rating_amb > label:hover:before,
@@ -48,7 +63,6 @@ label {
 .rating_amb > input.radio-btn:checked ~ label:before,
 .rating_amb > input.radio-btn:checked ~ label:before {
     background: rgb(211, 43, 46);
-    url(../img/voteFull.png);
     position: relative;
     left: 0;
 }
@@ -78,7 +92,6 @@ label {
 .rating_prix > label:hover ~ label,
 .rating_prix > input.radio-btn:checked ~ label {
     background: rgb(211, 43, 46);
-    url(../img/voteFull.png);
 }
 
 .rating_prix > label:hover:before,
@@ -86,7 +99,6 @@ label {
 .rating_prix > input.radio-btn:checked ~ label:before,
 .rating_prix > input.radio-btn:checked ~ label:before {
     background: rgb(211, 43, 46);
-    url(../img/voteFull.png);
     position: relative;
     left: 0;
 }
@@ -115,7 +127,6 @@ label {
 .rating_dist > label:hover ~ label,
 .rating_dist > input.radio-btn:checked ~ label {
     background: rgb(211, 43, 46);
-    url(../img/voteFull.png);
 }
 
 .rating_dist > label:hover:before,
@@ -123,7 +134,6 @@ label {
 .rating_dist > input.radio-btn:checked ~ label:before,
 .rating_dist > input.radio-btn:checked ~ label:before {
     background: rgb(211, 43, 46);
-    url(../img/voteFull.png);
     position: relative;
     left: 0;
 }
@@ -152,7 +162,6 @@ label {
 .rating_gen > label:hover ~ label,
 .rating_gen > input.radio-btn:checked ~ label {
     background: rgb(211, 43, 46);
-    url(../img/voteFull.png);
 }
 
 .rating_gen > label:hover:before,
@@ -160,7 +169,6 @@ label {
 .rating_gen > input.radio-btn:checked ~ label:before,
 .rating_gen > input.radio-btn:checked ~ label:before {
     background: rgb(211, 43, 46);
-    url(../img/voteFull.png);
     position: relative;
     left: 0;
-}
+}*/

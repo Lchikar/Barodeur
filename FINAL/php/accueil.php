@@ -51,7 +51,6 @@
             </div>
         </form>
     </main>
-
     <script src="../js/redirection.js"></script>
 </body>
 

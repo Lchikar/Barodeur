@@ -28,7 +28,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
     <nav id="menu">
         <div id="classement">
-            <div id="classer" onClick="Afficher()"></div>
+            <div id="afficher" onClick="Afficher()"></div>
         </div>
         <div>
             <form id="formRecherche" method="get" action="">
@@ -44,13 +44,13 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
         <?php
 				$stmt =  MyPDO::getInstance()->prepare(
 				"SELECT name, photo, 
-				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse, bartype.barType as type
-				FROM Bar NATURAL JOIN City NATURAL JOIN BarBelongsType NATURAL JOIN bartype
+				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse, BarType.barType as type
+				FROM Bar NATURAL JOIN City NATURAL JOIN BarBelongsType NATURAL JOIN BarType
 				WHERE Bar.name = :recherche OR cityName= :recherche OR postalCode= :recherche OR barType= :recherche");
 				$stmt->bindValue(':recherche', $_GET['rechercher']);
 				$stmt->execute();	
 				while($general = $stmt->fetch()){
-					echo '<div id="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
+					echo '<div class="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
 					echo '<div id="affiche_bar" onClick="ChangePage()">';
 							$src = "../image/bars/".$general['photo'];
 							echo ('<div id="picture"> <img class="photo"
@@ -67,8 +67,8 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							 echo '<div id="moy">';
 							 $stmt2 =  MyPDO::getInstance()->prepare(
 								"SELECT Mark.value as 'value'
-								FROM Bar NATURAL JOIN Mark NATURAL JOIN markType 
-								WHERE Bar.name =:bar AND markType.markType = 'generale'");
+								FROM Bar NATURAL JOIN Mark NATURAL JOIN MarkType 
+								WHERE Bar.name =:bar AND MarkType.markType = 'general'");
 								$stmt2->bindValue(':bar', $general['name']); 
 								
 								$stmt2->execute();
@@ -98,9 +98,9 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
             <div id="trier"><input type="submit" value="Classer par :" /></div>
             <div id="cocher">
+                <label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note générale</label>
                 <label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
                 <label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
-                <label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
                 <label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
             </div>
             <input type="button" value="Ajouter bar" onClick="redir_Ajout()" />
