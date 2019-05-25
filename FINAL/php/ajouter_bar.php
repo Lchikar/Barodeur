@@ -17,7 +17,7 @@
 <body id="ajoutBar">
     <nav id="menu">
         <div id="classement">
-            <div id="classer" onClick="Afficher()"></div>
+            <div id="afficher" onClick="Afficher()"></div>
         </div>
         <div>
             <form id="formRecherche" method="get" action="recherche_bar.php">

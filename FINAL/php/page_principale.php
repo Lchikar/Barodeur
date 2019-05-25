@@ -24,9 +24,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 <body>
 	
 		<nav id="menu" >
-			<div id="classement">
-				<div id="classer"  onClick="Afficher()"></div>
-			</div>
+            <div id="afficher"  onClick="Afficher()"></div>
 			<div>
 				<form id="formRecherche" method="get" action="recherche_bar.php">
 					<input type="text" name="rechercher" id="rechercher" placeholder="Rechercher" />
@@ -61,8 +59,8 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 				$stmt->execute();	
 
 				while($general = $stmt->fetch()){
-					echo '<div id="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
-					echo '<div id="affiche_bar" >';
+					echo '<div class="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
+					echo '<div class="affiche_bar" >';
 							$src = "../image/bars/".$general['photo'];
 							echo ('<div id="picture"> <img class="photo"
 							 src="'.$src.'"
@@ -100,7 +98,6 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							echo "</div>";
 							echo "</div>";
 							echo '</a></div>';
-							echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
 						}
 					?>
 				</div>
