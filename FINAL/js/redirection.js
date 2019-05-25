@@ -37,7 +37,7 @@ function redir_Distance() {
     console.log("Trier par distance");
     document.location.href = "page_principale.php?type=distance";
 }
-
-function redir_Ajout() {
-    document.location.href = "../php/ajouter_bar.php";
+    
+function redir_Ajout(){
+    document.location.href= "../php/ajouter_bar.php";
 }
