@@ -30,7 +30,7 @@ function redir_Ambiance() {
 
 function redir_Note() {
     console.log("Trier par note");
-    document.location.href = "page_principale.php?type=generale";
+    document.location.href = "page_principale.php?type=general";
 }
 
 function redir_Distance() {

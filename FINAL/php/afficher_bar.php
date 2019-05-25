@@ -240,12 +240,8 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 					?>	
 					<?php 
 						echo("<input type='text' name='comm' id='comm' placeholder='".$_SESSION['pseudo'].", laisse ton commentaire'/>");
+						echo('<input type="hidden" name="bar" id="bar" value="'.$_GET['bar'].'"/>');
 					?>
-<<<<<<< HEAD:front/afficher_bar.php
-				<form id="Retour" method="post" action="accueil.html">
-				<input type="submit" id="retourA"value="Retour à l'accueil"/>
-				</form>
-=======
 						<input type="submit" id="publieA"value="Publie ton comm'"/>
 					</form>
 				<div class="commentaires">
@@ -259,7 +255,7 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 						$stmt->execute();
 
 						while($comm = $stmt->fetch()){
-							echo $comm['pseudo']." dit :\"".$comm['text']."\"";
+							echo $comm['pseudo']." dit :\"".$comm['text']."\"<br><br>";
 						}
 					?>
             </div>
@@ -273,11 +269,25 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
     </div>
 
     <!--deuxieme interface quand on clique sur le bouton-->
+	<div id="hidden" style="display: none;" >
+		<div id="croix" onClick="Cacher()"> </div>
+		<form id="mainForm" method="post">
+				<div id="trier"><input type="submit"  value="Classer par :" /></div>
+ 				<div id="cocher">
+	 				<label><input type="radio" id="prix" name="tri" value="Prix" onClick="redir_Prix()">Prix</label>
+					<label><input type="radio" id="ambiance" name="tri" value="Ambiance" onClick="redir_Ambiance()">Ambiance</label>
+					<label><input type="radio" id="note" name="tri" value="Note" onClick="redir_Note()">Note</label>
+					<label><input type="radio" id="distance" name="tri" value="Distance" onClick="redir_Distance()">Distance</label>
+				</div>
 
-            </div>
+			<input type="button" value="Ajouter bar" onClick="redir_Ajout()"/>
+			<a href="deconnexion.php" class="deconnexion">
+                <div id="divDeco"></div>
+            </a>
+		</form>
+	</div>
     <script src="../js/menu.js"></script>
     <script src="../js/redirection.js"></script>
->>>>>>> master:FINAL/php/afficher_bar.php
 </body>
 
 </html>
