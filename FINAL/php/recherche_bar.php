@@ -53,18 +53,18 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 			while($general = $stmt->fetch()){
                 $cpt_res++;
 				echo '<div class="classer"><a href="afficher_bar.php?bar='.$general["name"].'" style="text-decoration: none">';
-				echo '<div id="affiche_bar" onClick="ChangePage()">';
+				echo '<div id="affiche_recherche" onClick="ChangePage()">';
 					$src = "../image/bars/".$general['photo'];
 					echo ('<div id="picture"> <img class="photo"
 					 src="'.$src.'"
 					 alt='.$general['name'].'/>');
 					 echo '</div>';
 					 
-					 echo('<br><div id="infos">');
-					 echo "<br>".$general['name']."<br>";
-					 echo "<br>".$general['adresse']."<br>";
-					 echo "<br>Bar à ".$general['type']."<br>";
-					 echo '</div>';
+					  echo('<div id="infos">');
+                     echo "<p>".$general['name']."</p>";
+                     echo "<p>".$general['adresse']."</p>";
+                     echo "<p>Bar à ".$general['type']."</p>";
+                     echo '</div>';
 					 
 					 echo '<div id="moy">';
 					 $stmt2 =  MyPDO::getInstance()->prepare(
@@ -81,11 +81,10 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 						}
 						if(0 == $cpt) $moy = 0;
 						else $moy = $somme/$cpt;
-						echo "<br>Note générale: ".$moy."/5";
+						echo "<p>Note générale: ".round($moy, 1)."/5</p>";
 						echo "</div>";
 					echo "</div>";
 					echo '</a></div>';
-					echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
 				}
                 if(0 == $cpt_res)
                     echo "Aucun resultat pour \"".$_GET['rechercher']."\"<br>";
