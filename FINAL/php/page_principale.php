@@ -93,7 +93,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							}
 							if(0 == $cpt) $moy = 0;
 							else $moy = $somme/$cpt;
-							echo "<br>".$markType." : ".$moy."/5";
+							echo "<br>".$markType." : ".round($moy, 1)."/5";
                             echo '</div>';
 							echo "</div>";
 							echo "</div>";

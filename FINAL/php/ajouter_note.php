@@ -41,22 +41,24 @@ foreach ($marktypes as $marktype => $markvalue)
 
 if(isset($_GET['bar']) && !empty($_GET['bar'])){
     foreach ($marktypes as $marktype => $markvalue) {
-        $stmt2 = MyPDO::getInstance()->prepare(
-                "INSERT INTO Mark (id_markType, id_user, id_bar, value) VALUES(
-                (SELECT MarkType.id_markType FROM MarkType WHERE MarkType.markType = :markType),
-                (SELECT User.id_user FROM User WHERE User.pseudo = :pseudo),
-                (SELECT Bar.id_bar FROM Bar WHERE Bar.name = :bar),
-                :value_mark);");
+        if(0!=$mark_value){
+            $stmt2 = MyPDO::getInstance()->prepare(
+                    "INSERT INTO Mark (id_markType, id_user, id_bar, value) VALUES(
+                    (SELECT MarkType.id_markType FROM MarkType WHERE MarkType.markType = :markType),
+                    (SELECT User.id_user FROM User WHERE User.pseudo = :pseudo),
+                    (SELECT Bar.id_bar FROM Bar WHERE Bar.name = :bar),
+                    :value_mark);");
 
-        $stmt2->bindValue(':markType', $marktype);
-        $stmt2->bindValue(':value_mark', $markvalue);
-        $stmt2->bindValue(':pseudo', $_SESSION['pseudo']);
-        $stmt2->bindValue(':bar', $_GET['bar']);
+            $stmt2->bindValue(':markType', $marktype);
+            $stmt2->bindValue(':value_mark', $markvalue);
+            $stmt2->bindValue(':pseudo', $_SESSION['pseudo']);
+            $stmt2->bindValue(':bar', $_GET['bar']);
 
-        $stmt2->execute();
-        $stmt2->closeCursor();
+            $stmt2->execute();
+            $stmt2->closeCursor();
 
-        echo $marktype.": ".$markvalue."<br>";
+            echo $marktype.": ".$markvalue."<br>";
+        }
     }
 }
 header('location: afficher_bar.php?bar='.$_GET['bar']);

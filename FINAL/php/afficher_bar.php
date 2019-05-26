@@ -89,18 +89,18 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
             <form id="notes" method="GET" action="ajouter_note.php">
                 <h2>Notes</h2>
                 <h2>Moyennes</h2>
-                <div class="un div_affiche_note">
+                <div class="un div_affiche_note ">
                     <h3 class="h3">Ambiance :</h3>
-                    <input id="staramb1" name="ambi5" type="radio" value="1" class="radio-btn hide amb" />
-                    <label for="staramb1"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="staramb2" name="ambi4" type="radio" value="2" class="radio-btn hide amb" />
-                    <label for="staramb2"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="staramb3" name="ambi3" type="radio" value="3" class="radio-btn hide amb" />
-                    <label for="staramb3"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="staramb4" name="ambi2" type="radio" value="4" class="radio-btn hide amb" />
-                    <label for="staramb4"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="staramb5" name="ambi1" type="radio" value="5" class="radio-btn hide amb" />
-                    <label for="staramb5"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="staramb1" name="ambi5" type="radio" value="1" class="radio-btn hide amb" onChange="selec_amb(this.id)" />
+                    <label for="staramb1" id="label_staramb1" class="label_staramb"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="staramb2" name="ambi4" type="radio" value="2" class="radio-btn hide amb" onChange="selec_amb(this.id)"/>
+                    <label for="staramb2" id="label_staramb2" class="label_staramb"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="staramb3" name="ambi3" type="radio" value="3" class="radio-btn hide amb" onChange="selec_amb(this.id)" />
+                    <label for="staramb3" id="label_staramb3" class="label_staramb"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="staramb4" name="ambi2" type="radio" value="4" class="radio-btn hide amb" onChange="selec_amb(this.id)"/>
+                    <label for="staramb4" id="label_staramb4" class="label_staramb"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="staramb5" name="ambi1" type="radio" value="5" class="radio-btn hide amb" onChange="selec_amb(this.id)"/>
+                    <label for="staramb5" id="label_staramb5" class="label_staramb"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                 </div>
                 <div class="trois div_affiche_moyenne">
                     <?php
@@ -124,16 +124,16 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 
                 <div class="quatre div_affiche_note">
                     <h3>Prix :</h3>
-                    <input id="starprix5" name="prix1" type="radio" value="1" class="radio-btn hide" />
-                    <label for="starprix5"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="starprix4" name="prix2" type="radio" value="2" class="radio-btn hide" />
-                    <label for="starprix4"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="starprix3" name="prix3" type="radio" value="3" class="radio-btn hide" />
-                    <label for="starprix3"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="starprix2" name="prix4" type="radio" value="4" class="radio-btn hide" />
-                    <label for="starprix2"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="starprix1" name="prix5" type="radio" value="5" class="radio-btn hide" />
-                    <label for="starprix1"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="starprix1" name="prix1" type="radio" value="1" class="radio-btn hide" onChange="selec_prix(this.id)" />
+                    <label for="starprix1" id="label_starprix1" class="label_starprix"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="starprix2" name="prix2" type="radio" value="2" class="radio-btn hide" onChange="selec_prix(this.id)"/>
+                    <label for="starprix2" id="label_starprix2" class="label_starprix"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="starprix3" name="prix3" type="radio" value="3" class="radio-btn hide" onChange="selec_prix(this.id)"/>
+                    <label for="starprix3" id="label_starprix3" class="label_starprix"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="starprix4" name="prix4" type="radio" value="4" class="radio-btn hide" onChange="selec_prix(this.id)"/>
+                    <label for="starprix4" id="label_starprix4" class="label_starprix"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="starprix5" name="prix5" type="radio" value="5" class="radio-btn hide" onChange="selec_prix(this.id)"/>
+                    <label for="starprix5" id="label_starprix5" class="label_starprix"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                 </div>
                 <div class="six div_affiche_moyenne">
                     <?php
@@ -156,16 +156,16 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 
                 <div class="sept div_affiche_note">
                     <h3 class="h3">Distance :</h3>
-                    <input id="stardist5" name="dist1" type="radio" value="1" class="radio-btn hide" />
-                    <label for="stardist5"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="stardist4" name="dist2" type="radio" value="2" class="radio-btn hide" />
-                    <label for="stardist4"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="stardist3" name="dist3" type="radio" value="3" class="radio-btn hide" />
-                    <label for="stardist3"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="stardist2" name="dist4" type="radio" value="4" class="radio-btn hide" />
-                    <label for="stardist2"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="stardist1" name="dist5" type="radio" value="5" class="radio-btn hide" />
-                    <label for="stardist1"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stardist1" name="dist1" type="radio" value="1" class="radio-btn hide" onChange="selec_dist(this.id)"/>
+                    <label for="stardist1" id="label_stardist1" class="label_stardist"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stardist2" name="dist2" type="radio" value="2" class="radio-btn hide" onChange="selec_dist(this.id)"/>
+                    <label for="stardist2" id="label_stardist2" class="label_stardist"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stardist3" name="dist3" type="radio" value="3" class="radio-btn hide" onChange="selec_dist(this.id)"/>
+                    <label for="stardist3" id="label_stardist3" class="label_stardist"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stardist4" name="dist4" type="radio" value="4" class="radio-btn hide" onChange="selec_dist(this.id)"/>
+                    <label for="stardist4" id="label_stardist4" class="label_stardist"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stardist5" name="dist5" type="radio" value="5" class="radio-btn hide" onChange="selec_dist(this.id)"/>
+                    <label for="stardist5" id="label_stardist5" class="label_stardist"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                 </div>
                 <div class="neuf div_affiche_moyenne">
                     <?php
@@ -188,16 +188,16 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
 
                 <div class="dix div_affiche_note">
                     <h3 class="h3">Général :</h3>
-                    <input id="stargen5" name="gen1" type="radio" value="1" class="radio-btn hide" />
-                    <label for="stargen5"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="stargen4" name="gen2" type="radio" value="2" class="radio-btn hide" />
-                    <label for="stargen4"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="stargen3" name="gen3" type="radio" value="3" class="radio-btn hide" />
-                    <label for="stargen3"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="stargen2" name="gen4" type="radio" value="4" class="radio-btn hide" />
-                    <label for="stargen2"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
-                    <input id="stargen1" name="gen5" type="radio" value="5" class="radio-btn hide" />
-                    <label for="stargen1"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stargen1" name="gen1" type="radio" value="1" class="radio-btn hide" onChange="selec_gen(this.id)"/>
+                    <label for="stargen1" id="label_stargen1" class="label_stargen"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stargen2" name="gen2" type="radio" value="2" class="radio-btn hide" onChange="selec_gen(this.id)"/>
+                    <label for="stargen2" id="label_stargen2" class="label_stargen"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stargen3" name="gen3" type="radio" value="3" class="radio-btn hide" onChange="selec_gen(this.id)"/>
+                    <label for="stargen3" id="label_stargen3" class="label_stargen"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stargen4" name="gen4" type="radio" value="4" class="radio-btn hide" onChange="selec_gen(this.id)"/>
+                    <label for="stargen4" id="label_stargen4" class="label_stargen"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
+                    <input id="stargen5" name="gen5" type="radio" value="5" class="radio-btn hide" onChange="selec_gen(this.id)"/>
+                    <label for="stargen5" id="label_stargen5" class="label_stargen"><img src="../image/wine-glasses.png" height='35px' width='35px'></label>
                 </div>
                 <div class="douze div_affiche_moyenne">
                     <?php
@@ -275,13 +275,66 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
             </div>
             <script>
                 //plutôt ajouter un événement
-                var notes = document.getElementById("notes").querySelectorAll(".radio-btn");
+                /*var notes = document.getElementById("notes").querySelectorAll(".radio-btn");
                 for(var note of notes){
                     if(note.checked == true && note.classList.contains("amb")){
                         var numero = note.id.substr(note.id.length - 1);
                         document.querySelector(".staramb"+numero).classList.add("note_selec");
                     }
+                }*/
+                
+                /*var notes_amb = document.querySelectorAll(".amb");
+                for (var une_note_amb of notes_amb){
+                    addEventListener("click", function(){
+                        console.log(this.id);
+                        var elemtn_id = this.id;
+                        var numero = elemtn_id.substr(elemtn_id.length - 1);
+                        document.querySelector(".staramb"+numero).classList.toggle("note_selec");
+                    });
+                }*/
+                
+                function selec_amb(id){
+                    var labels_amb = document.querySelectorAll(".label_staramb");
+                    for(var label_amb of labels_amb){
+                        if(label_amb.classList.contains('note_selec')){
+                            label_amb.classList.remove('note_selec');
+                        }
+                    }
+                    document.getElementById("label_"+id).classList.add("note_selec");
                 }
+                
+                function selec_prix(id){
+                    var labels_prix = document.querySelectorAll(".label_starprix");
+                    for(var label_prix of labels_prix){
+                        if(label_prix.classList.contains('note_selec')){
+                            label_prix.classList.remove('note_selec');
+                        }
+                    }
+                    document.getElementById("label_"+id).classList.add("note_selec");
+                }
+                
+                function selec_dist(id){
+                    var labels_dist = document.querySelectorAll(".label_stardist");
+                    for(var label_dist of labels_dist){
+                        if(label_dist.classList.contains('note_selec')){
+                            label_dist.classList.remove('note_selec');
+                        }
+                    }
+                    document.getElementById("label_"+id).classList.add("note_selec");
+                }
+                
+                function selec_gen(id){
+                    var labels_gen = document.querySelectorAll(".label_stargen");
+                    for(var label_gen of labels_gen){
+                        if(label_gen.classList.contains('note_selec')){
+                            label_gen.classList.remove('note_selec');
+                        }
+                    }
+                    document.getElementById("label_"+id).classList.add("note_selec");
+                }
+                
+                
+                
             </script>
             <script src="../js/menu.js"></script>
             <script src="../js/redirection.js"></script>

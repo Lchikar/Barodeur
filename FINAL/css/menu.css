@@ -108,7 +108,6 @@
 
     .classer {
         min-height: 40vh;
-        width: 50px;
         background-size: contain;
         background-position: center;
         padding-top: 0;
@@ -152,7 +151,7 @@
 
     #cocher {
         display: grid;
-        height: 20vh;
+        min-height: 20vh;
         color: white;
         letter-spacing: 1px;
         font-size: 20px;
@@ -206,6 +205,31 @@
         flex-wrap: wrap;
         background-color: #85000c;
         font-family: 'El Messiri', sans-serif;
+    }
+    
+    #affiche_recherche{
+        font-family: 'El Messiri', sans-serif;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: #efd8dd;
+        width: 85vw;
+        min-height: 40vh;
+        margin: 3vh auto 3vh auto;
+        padding: 5px;
+        justify-content: center;
+    }
+    #affiche_recherche #picture{
+        max-width: 40vw;
+    }
+    #affiche_recherche #infos{
+        max-width: 40vw;
+    }
+    #affiche_recherche #infos p,  #affiche_recherche #moy p{
+        margin: 5px;
+    }
+    #affiche_recherche #moy{
+        width: 70vw;
     }
 
 }

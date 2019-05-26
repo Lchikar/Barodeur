@@ -1,4 +1,4 @@
-label {
+#bottom label {
     display: inline-block;
     background: rgb(150, 114, 114);
     background-repeat: no-repeat;
@@ -31,13 +31,14 @@ label {
 .note_selec{
      background-color: rgb(211, 43, 46);
 }
-/*
-.rating_amb {
+
+/*.rating_amb {
     width: 90px;
     unicode-bidi: bidi-override;
     direction: rtl;
     text-align: center;
     position: relative;
+    direction : rtl !important;
 }
 
 .rating_amb > label {

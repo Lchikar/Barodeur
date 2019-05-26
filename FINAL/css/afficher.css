@@ -171,15 +171,6 @@
         align-items: center;
     }
 
-    #cocher {
-        display: grid;
-        height: 20vh;
-        color: white;
-        letter-spacing: 1px;
-        font-size: 20px;
-        font-weight: normal;
-    }
-
     #trier {
         margin-bottom: 10px;
         margin-top: 45px;
