@@ -42,11 +42,12 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 
     <div id="AllBars">
         <?php
+        
 				$stmt =  MyPDO::getInstance()->prepare(
 				"SELECT name, photo, 
 				CONCAT (numStreet, ' ', street, ' ', postalCode,' ', cityName) as adresse, BarType.barType as type
 				FROM Bar NATURAL JOIN City NATURAL JOIN BarBelongsType NATURAL JOIN BarType
-				WHERE Bar.name = :recherche OR cityName= :recherche OR postalCode= :recherche OR barType= :recherche");
+				WHERE Bar.name LIKE :recherche OR cityName LIKE :recherche OR postalCode LIKE :recherche OR barType LIKE :recherche");
 				$stmt->bindValue(':recherche', $_GET['rechercher']);
 				$stmt->execute();	
 				while($general = $stmt->fetch()){

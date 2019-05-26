@@ -68,10 +68,10 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							 echo '</div>';
 							 
 							 echo('<br><div id="infos">');
-							 echo "<br>".$general['name']."<br>";
-							 echo "<br>".$general['adresse']."<br>";
+							 echo "<h3>".$general['name']."</h3>";
+							 echo "<p>".$general['adresse']."</p>";
                              if ($general['website'] != ''){
-                                    echo "<br><a href=".$general['website']."target=\"_blank\"><u>Site du bar</u></a><br>";
+                                    echo "<a href=".$general['website']."target=\"_blank\"><u>Site du bar</u></a>";
                               }
 							 
 
@@ -93,7 +93,7 @@ require_once '../MyPDO_config/MyPDO.db.include.php'; // connexion à la bdd
 							}
 							if(0 == $cpt) $moy = 0;
 							else $moy = $somme/$cpt;
-							echo "<br>".$markType." : ".round($moy, 1)."/5";
+							echo "<p> Note générale : ".round($moy, 1)."/5</p>";
                             echo '</div>';
 							echo "</div>";
 							echo "</div>";

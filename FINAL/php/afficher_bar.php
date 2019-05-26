@@ -274,25 +274,6 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
                 </form>
             </div>
             <script>
-                //plutôt ajouter un événement
-                /*var notes = document.getElementById("notes").querySelectorAll(".radio-btn");
-                for(var note of notes){
-                    if(note.checked == true && note.classList.contains("amb")){
-                        var numero = note.id.substr(note.id.length - 1);
-                        document.querySelector(".staramb"+numero).classList.add("note_selec");
-                    }
-                }*/
-                
-                /*var notes_amb = document.querySelectorAll(".amb");
-                for (var une_note_amb of notes_amb){
-                    addEventListener("click", function(){
-                        console.log(this.id);
-                        var elemtn_id = this.id;
-                        var numero = elemtn_id.substr(elemtn_id.length - 1);
-                        document.querySelector(".staramb"+numero).classList.toggle("note_selec");
-                    });
-                }*/
-                
                 function selec_amb(id){
                     var labels_amb = document.querySelectorAll(".label_staramb");
                     for(var label_amb of labels_amb){
@@ -332,9 +313,6 @@ if(!isset($_GET['bar']) || empty($_GET['bar'])){
                     }
                     document.getElementById("label_"+id).classList.add("note_selec");
                 }
-                
-                
-                
             </script>
             <script src="../js/menu.js"></script>
             <script src="../js/redirection.js"></script>
